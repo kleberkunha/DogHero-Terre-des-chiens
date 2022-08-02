@@ -5,8 +5,6 @@
 
   <div class="container event-cards d-flex">
     <% @events.each do |event| %>
-      <% if current_user.id === event.user_id%>
-        
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="..." alt="Card image cap">
           <div class="card-body">
@@ -15,28 +13,12 @@
               <h5>Start: <%= event.start_date %></h5>
               <h5>Ends: <%= event.start_date %></h5>
               <h5>Price: <%= event.price %></h5>
-
               <h4>Creator: <%= event.user_id %></h4>
               <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
               <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
               <a href="#" class="btn btn-primary"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></a>
           </div>
         </div>
-      <% else %>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title"><%= event.title %></h5>
-              <p class="card-text"><%= event.body %></p>
-              <h5>Start: <%= event.start_date %></h5>
-              <h5>Ends: <%= event.start_date %></h5>
-              <h5>Price: <%= event.price %></h5>
-
-              <h4>Creator: <%= event.user_id %></h4>
-              <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
-          </div>
-        </div>
-      <% end %>
     <% end %>
   </div>
   

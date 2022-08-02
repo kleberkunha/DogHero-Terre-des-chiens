@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get 'users/:id/events' => 'users#events', :as => :user_events
 
+  get 'edit' => 'users#edit'
+  post  'edit'   => 'users#update'
+
   
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
