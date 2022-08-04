@@ -1,21 +1,7 @@
-  <%= link_to 'Home', root_path %>
-  <%= form_for current_user do |f| %>
-  <p>
-  <%= f.label :first_name %><br>
-  <%= f.text_field :first_name %>
-  </p>
-  <p>
-  <%= f.label :address %><br>
-  <%= f.text_area :address %>
-  </p>
-  <p>
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-  </p> 
-  <p>
-  <%= f.label :phone_number %><br>
-  <%= f.text_field :phone_number %>
-  </p>
-  <%= f.submit %>
-  </p>
-  <% end %>
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
+
+
+<%= render 'form', user: @user %>
+

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  authorize_resource class: false
+  load_and_authorize_resource :only => [:new, :edit, :destroy] 
 
   before_action :set_event, only: [ :show, :edit, :update, :destroy ]
 
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
+        format.html { redirect_to user_path(current_user), notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }

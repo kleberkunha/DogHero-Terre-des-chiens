@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dogs
   devise_for :users
   
   resources :users do
@@ -6,12 +7,14 @@ Rails.application.routes.draw do
       get :events
     end
   end
+  
   resources :events
+
 
   get 'users/:id/events' => 'users#events', :as => :user_events
 
-  get 'edit' => 'users#edit'
-  post  'edit'   => 'users#update'
+  get 'user/:id/edit', to: 'user#edit', as: 'edit'
+
 
   
   

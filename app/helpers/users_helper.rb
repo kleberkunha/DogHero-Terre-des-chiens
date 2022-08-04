@@ -1,6 +1,9 @@
 module UsersHelper
 
-    def description
-       
-    end
+    
+
+    ##example of a helper
+    #def full_name
+    #    @user.first_name + " " + @user.last_name
+    #end
 end

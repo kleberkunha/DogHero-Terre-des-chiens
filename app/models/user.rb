@@ -3,10 +3,17 @@ class User < ApplicationRecord
   before_save { email.downcase! }
 
 
-  validates :email, presence: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid address !"}
+  validates :email, :presence => true, :uniqueness => true, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
+
+  #i need to create the validation for password when SignUp
 
 
+  
   has_many :events
+  has_many :dogs
+
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
