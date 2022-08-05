@@ -8,14 +8,36 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+      <link href="images/favicon.ico" rel="icon">
+
+      <!-- Google Web Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+      <!-- Flaticon Font -->
+      <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+      <!-- Libraries Stylesheet -->
+      <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+      <!-- Customized Bootstrap Stylesheet -->
+      <link href="../../assets/stylesheets/components/home_index/style.css" rel="stylesheet">
   </head>
 
   <body>
     <%= render 'home/header.html.erb'%>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
+
+
+
+
+    
     <%= yield %>
   </body>
 </html>
