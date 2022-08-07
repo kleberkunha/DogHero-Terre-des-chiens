@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <% User.all.each do |user| %>
+  
+    <li class="list-group-item" onclick="window.location.href='<%=user_path(user.id)%>'">User id : <%= user.id %> | <%= user.first_name %>&nbsp<%= user.last_name %></li>
+  <% end %>
+</ul>
+
+

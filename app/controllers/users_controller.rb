@@ -10,9 +10,6 @@ class UsersController < ApplicationController
 
   end
 
-  def index
-
-  end
 
   def events
     @user = User.find(params[:id])
@@ -23,11 +20,24 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+
+  def destroy
+    @user = User.find(params[:id])
+
+    if @user 
+      @user.destroy
+      flash[:success] = "User successfully Deleted!"
+      redirect_to admin_path
+    end
+
+  end
+
+
   def update
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :address, :description))
       flash[:success] = "User successfully updated!"
-      redirect_to user_url(@user)
+      redirect_to user_url(current_user)
     else
       flash.now[:error] = "To-do item update failed"
       render :edit
