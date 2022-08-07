@@ -1,18 +1,12 @@
-<% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
 <div class="container">
     <div class="main-body">
     
-          <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html"><%=link_to 'Home', root_path %></a></li>
               <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
           </nav>
-          <!-- /Breadcrumb -->
     
           <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
@@ -45,12 +39,18 @@
                                 <%= @user.address%>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <h6 class="mb-0">Description</h6>
-                                <%= @user.description%>
+                            <h6 class="mb-0">User :</h6>
+                            <%= @user.role%>
                         </li>
                     </ul>
                 </div>
-                <%=link_to 'Edit my informations', edit_user_registration_path %>
+                
+                <%=link_to 'Edit my informations', edit_user_path %>
+
+                <%=link_to 'Change Password', edit_user_registration_path %>
+                <% if @user.admin? %>
+                    <%=link_to 'Admin Page', admin_path %>
+                <% end %>
             </div>
             <div class="col-md-8">
                 <div class="card mb-3">
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                    <h6 class="mb-0">Address</h6>
+                                    <h6 class="mb-0">Description</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                     <%= dog.description%>
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                    <%=link_to 'Edit profile', edit_dog_path %>
+                                        <%=link_to 'Edit profile', edit_dog_path %>
                                     </div>
                                 </div>
                             </div>
@@ -166,18 +166,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

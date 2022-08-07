@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'user/:id/edit', to: 'user#edit', as: 'edit'
 
+  get 'admin', to: 'users#admin_page', as: 'admin'
 
   
   
