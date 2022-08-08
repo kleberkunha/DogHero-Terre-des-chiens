@@ -147,27 +147,33 @@
               </div>
 
               <div class="col-lg-6 d-flex">
-                <%= search_form_for @q do |f| %> 
 
-                    <div class="field">
-                      <%= f.label :name_cont, 'User Name' %>
-                      <%= f.text_field :name_cont, class: 'form-control' %>
-                    </div>
-                  <% end %>
+                <%= form_tag( admin_path, :method=> :get ) do %>
+                  <div
+                    class="">
+                    <%= search_field_tag :search, params[:search], placeholder: "Search" ,
+                      class: "" %>
+                      <div class="">
+                        <%= button_tag "Search" ,:name => nil%>
+                      </div>
+                  </div>
+                <% end %>
 
+
+                <!-- Lista de todos os usuarios, e caso o imput do search seja != nil 
+                ele devera mostrar o usuario procurado -->
 
                 <div class="container p-3">
                   <div class="row">
                     <ul class="list-group">
-                      <% User.all.each do |user| %>
-                        <li class="list-group-item" onclick="window.location.href='<%=user_path(user.id)%>'">User id : <%= user.id %> | <%= user.first_name %>&nbsp<%= user.last_name %></li>
+                      <% @users.each do |user| %>
+                        <li class="list-group-item" onclick="window.location.href='<%=user_path(user.id)%>'">
+                        User id : <%= user.id %> | <%= user.first_name %>&nbsp<%= user.last_name %></li>
                       <% end %>
                     </ul>
                   </div>
                 </div>
               </div>
-
-              
             </div>
           </div>
         </div>
@@ -186,6 +192,7 @@
 
 
               <div class="container col-lg-12 mt-3 p-3" style="overflow: scroll;">
+              
                 <div class="row col-lg-12" style="height: 345px;">
                   <% Event.all.each do |event| %>
                     <div class="col-sm-3 mb-3">

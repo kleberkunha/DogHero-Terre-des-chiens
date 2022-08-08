@@ -32,21 +32,7 @@ class User < ApplicationRecord
   end
 
 
-  def self.seach(search)
-    if seach
-      user = User.find_by(name: seach)
-
-      if user
-        self.where(user_id: user)
-      else
-        @users = User.all
-      end
-
-    else
-      @users = User.all
-
-    end
+  def self.search(search)
+    where("(first_name || last_name) LIKE :q", :q => "%#{search}%")
   end
-
-
 end

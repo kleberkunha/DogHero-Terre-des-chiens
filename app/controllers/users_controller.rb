@@ -3,20 +3,41 @@ class UsersController < ApplicationController
 
 
   def index
-    @ransack_path = admin_path
-
-    @ransack_users = Course.published.approved.ransack(params[:user_search], search_key: :user_search)
-    @users = @ransack_users.result.includes(:user)
-    @pagy, @users = pagy(@ransack_users.result.includes(:user))
+    @user = User.all
   end
+
+
+
+
+  def search
+
+    
+  end
+
+  def admin
+
+    if params[:search].blank?
+      @users = User.all
+    else
+
+      flash[:success] = "Search Passed !!!"
+      @parameter = params[:search].downcase!
+      @users = User.all.where("lower(first_name) LIKE ?", "%#{@parameter}%")
+      puts ("----ADMIN------------#####  --------* ******") 
+
+    end
+  end
+
 
 
   def show
     @user = User.find(params[:id])
 
-    @events = Event.where(user_id: current_user.id)
+    @events = Event.all.where(user_id: current_user.id)
 
     @dogs = Dog.where(user_id: current_user.id)
+
+    @users = User.all
 
   end
 
@@ -59,7 +80,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:users).permit(:first_name, :last_name, :email, :address, :description, :phone_number)
+    params.require(:users).permit(:first_name, :last_name, :email, :address, :description, :phone_number, :search)
   end
 
 
