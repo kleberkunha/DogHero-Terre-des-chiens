@@ -12,6 +12,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "webpack": "^5.74.0",
     "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
