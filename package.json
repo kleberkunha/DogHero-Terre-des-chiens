@@ -1,6 +1,9 @@
 {
   "name": "DogHero",
   "private": true,
+  "engines": {
+    "node": "12.12.12"
+  },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "@rails/actioncable": "^6.0.0",
