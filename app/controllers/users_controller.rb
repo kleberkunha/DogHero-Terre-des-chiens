@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
 
 
+
+  def index
+    @ransack_path = admin_path
+
+    @ransack_users = Course.published.approved.ransack(params[:user_search], search_key: :user_search)
+    @users = @ransack_users.result.includes(:user)
+    @pagy, @users = pagy(@ransack_users.result.includes(:user))
+  end
+
+
   def show
     @user = User.find(params[:id])
 
@@ -19,6 +29,8 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
+
+
 
 
   def destroy
@@ -49,5 +61,6 @@ class UsersController < ApplicationController
   def users_params
     params.require(:users).permit(:first_name, :last_name, :email, :address, :description, :phone_number)
   end
+
 
 end

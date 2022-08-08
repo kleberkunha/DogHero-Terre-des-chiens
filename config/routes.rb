@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get 'user/:id/edit', to: 'user#edit', as: 'edit'
 
   get 'admin', to: 'users#admin_page', as: 'admin'
-
   
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

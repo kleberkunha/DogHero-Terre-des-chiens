@@ -147,6 +147,14 @@
               </div>
 
               <div class="col-lg-6 d-flex">
+                <%= search_form_for @q do |f| %> 
+
+                    <div class="field">
+                      <%= f.label :name_cont, 'User Name' %>
+                      <%= f.text_field :name_cont, class: 'form-control' %>
+                    </div>
+                  <% end %>
+
 
                 <div class="container p-3">
                   <div class="row">
