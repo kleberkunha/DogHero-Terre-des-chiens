@@ -140,45 +140,96 @@
         <div class="row mt-4 d-flex">
           <div class="col-12 ">
             <div class="card mb-4 d-flex">
-              <div class="">
-                <div class="icon icon-shape icon-lg bg-gradient-success shadow text-center border-radius-xl mt-n3 ms-4">
-                  <i class="material-icons opacity-10" aria-hidden="true">Users</i>
-                </div>
-              </div>
-
               <div class="col-lg-6 d-flex">
-
-                <%= form_tag( admin_path, :method=> :get ) do %>
-                  <div
-                    class="">
-                    <%= search_field_tag :search, params[:search], placeholder: "Search" ,
-                      class: "" %>
-                      <div class="">
-                        <%= button_tag "Search" ,:name => nil%>
+                <div class="container">
+                  <div class="col">
+                    <div class="e-tabs mb-3 px-3">
+                      <ul class="nav">
+                        <li class="nav-item"><a class="nav-link active" href="#">Users</a></li>
+                      </ul>
+                    </div>
+                    <div class="row flex-lg-nowrap">
+                      <div class="col mb-3">
+                        <div class="e-panel card">
+                          <div class="card-body">
+                            <div class="e-table">
+                              <div class="table-responsive table-lg mt-3">
+                                <table class="table table-bordered">
+                                  <tbody>
+                                    <% @users.each do |user| %>
+                                      <tr onclick="window.location.href='<%=user_path(user.id)%>'">
+                                        <td class="align-middle">
+                                          <p><%= user.id %></p>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                          <div class="bg-light d-inline-flex justify-content-center align-items-center align-top" style="width: 35px; height: 35px; border-radius: 3px;"><i class="fa fa-fw fa-photo" style="opacity: 0.8;"></i></div>
+                                        </td>
+                                        <td class="text-nowrap align-middle"><%= user.first_name %>&nbsp<%= user.last_name %></td>
+                                        <td class="text-nowrap align-middle"><span>09 Dec 2017</span></td>
+                                        <td class="text-center align-middle"><i class="fa fa-fw text-secondary cursor-pointer fa-toggle-on"></i></td>
+                                        <td class="text-center align-middle">
+                                          <div class="btn-group align-top">
+                                              <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-form-modal">Edit</button>
+                                              <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    <% end %>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <!---
+                              <div class="d-flex justify-content-center">
+                                <ul class="pagination mt-3 mb-0">
+                                  <li class="disabled page-item"><a href="#" class="page-link">‹</a></li>
+                                  <li class="active page-item"><a href="#" class="page-link">1</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">5</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">›</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">»</a></li>
+                                </ul>
+                              </div>
+                              -->
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                  </div>
-                <% end %>
-
-
-                <!-- Lista de todos os usuarios, e caso o imput do search seja != nil 
-                ele devera mostrar o usuario procurado -->
-
-                <div class="container p-3">
-                  <div class="row">
-                    <ul class="list-group">
-                      <% @users.each do |user| %>
-                        <li class="list-group-item" onclick="window.location.href='<%=user_path(user.id)%>'">
-                        User id : <%= user.id %> | <%= user.first_name %>&nbsp<%= user.last_name %></li>
-                      <% end %>
-                    </ul>
+                      <div class="col-12 col-lg-3 mb-3">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="e-navlist e-navlist--active-bold">
+                              <ul class="nav">
+                                <li class="nav-item active"><h5>Total of users : <%= User.count%></h5></li>
+                              </ul>
+                            </div>
+                            <hr class="my-3">
+                            <div>
+                              <div class="form-group">
+                                <label>Search by Name:</label>
+                                <%= form_tag( admin_path, :method=> :get ) do %>
+                                  <div
+                                    class="">
+                                    <%= search_field_tag :search, params[:search], placeholder: "First Name", class: "form-control w-100"%>
+                                      <div class="">
+                                        <%= button_tag "Search" ,:name => nil%>
+                                      </div>
+                                  </div>
+                                <% end %>
+                              </div>
+                            </div>
+                            <hr class="my-3">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
 
         <div class="row mt-4 d-flex">
           <div class="col-12 ">
@@ -188,9 +239,6 @@
                   <i class="material-icons opacity-10" aria-hidden="true">Events</i>
                 </div>
               </div>
-
-
-
               <div class="container col-lg-12 mt-3 p-3" style="overflow: scroll;">
               
                 <div class="row col-lg-12" style="height: 345px;">
@@ -343,3 +391,39 @@
     </div>
   </div>
 </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

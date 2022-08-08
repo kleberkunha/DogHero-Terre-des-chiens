@@ -39,6 +39,9 @@ class UsersController < ApplicationController
 
     @users = User.all
 
+    @user_count = User.count
+
+
   end
 
 
