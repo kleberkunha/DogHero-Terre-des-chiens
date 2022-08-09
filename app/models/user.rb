@@ -11,7 +11,7 @@ class User < ApplicationRecord
   
   has_many :events
   has_many :dogs
-
+  has_many :subscribers
 
 
   enum role: [:user, :admin]

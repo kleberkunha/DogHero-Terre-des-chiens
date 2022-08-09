@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   resources :events
 
+  resources :subscribers, only: [:create, :destroy]
+
 
   get 'users/:id/events' => 'users#events', :as => :user_events
 

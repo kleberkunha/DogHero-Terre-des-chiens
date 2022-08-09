@@ -2,25 +2,55 @@
 
 <h1>Events</h1>
 
-  <div class="container event-cards d-flex">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 ml-3">
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'New Event', new_event_path %>
+    </div>
+  </div>
+</div>
+<div class="container-fluid main-events" style="width: 100%;">
+  <div class="row" >
     <% @events.each do |event| %>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-              <h5 class="card-title"><%= event.title %></h5>
-              <p class="card-text"><%= event.body %></p>
-              <h5>Start: <%= event.start_date %></h5>
-              <h5>Ends: <%= event.start_date %></h5>
-              <h5>Price: <%= event.price %></h5>
-              <h4>Creator: <%= event.user_id %></h4>
-              <% if user_signed_in? %>
-                <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
-                <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
-                <a href="#" class="btn btn-primary"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      <div class="col-lg-3 p-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+              <h5 class="card-title"><%= event.title%></h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <p class="card-text"><%= event.body %></p>
+                <h5>Start: <%= event.start_date %></h5>
+                <h5>Ends: <%= event.start_date %></h5>
+                <h5>Price: <%= event.price %></h5>
+                <h4>Creator: <%= event.user_id %></h4>
+              </div>
+
+              <!--THIS FORM SEND THE INFORMATION TO SUBSCRIPTION CONTROLLER --->
+
+              N¤ of Subscribers : <%= event.subscribers.count %>
+              <% subscriber = current_user.subscribers.find_by(event: event)%>
+              <% if subscriber.nil?%>
+                <form action="/subscribers" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                  <input type="submit" value="Subscribe">
+                </form>
+              <% else%>
+                <form action="<%= subscriber_path(subscriber)%>" method="post">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="submit" value="Unsubscribe">
+                </form>
+
+                
               <% end %>
+            </div>
           </div>
         </div>
+      </div>
     <% end %>
   </div>
-<%= link_to 'Home', root_path %>
-<%= link_to 'New Event', new_event_path %>
+</div>

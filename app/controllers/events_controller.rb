@@ -11,6 +11,9 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @event_id = Event.all
+
+    @subscriber = Subscriber.where(event_id: @event_id)
   end
 
   # GET /events/new
@@ -21,6 +24,8 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
   end
+
+
 
 
 
@@ -73,6 +78,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :body, :start_date, :end_date, :price)
+      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :subscribe)
     end
 end
