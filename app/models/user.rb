@@ -11,7 +11,7 @@ class User < ApplicationRecord
   
   has_many :events
   has_many :dogs
-
+  has_many :subscribers
 
 
   enum role: [:user, :admin]
@@ -32,4 +32,7 @@ class User < ApplicationRecord
   end
 
 
+  def self.search(search)
+    where("(first_name || last_name) LIKE :q", :q => "%#{search}%")
+  end
 end

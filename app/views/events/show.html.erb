@@ -1,31 +1,6 @@
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<% @subscriber.each do |s| %>
+    <%= s.event_id %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @event.body %>
-</p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user.user_name%>
-</p>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% end %>
