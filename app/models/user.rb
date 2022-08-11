@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 
   
-  has_many :events
+  has_many :events, dependent: :delete_all
   has_many :dogs
   has_many :subscribers
 

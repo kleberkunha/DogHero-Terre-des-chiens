@@ -255,7 +255,7 @@
                           <% if user_signed_in? %>
                             <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
                             <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
-                            <a href="#" class="btn btn-primary"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+                            <a href="#" class="btn btn-primary"><%= link_to 'Destroy', method: :destroy, data: { confirm: 'Are you sure?' } %></a>
                           <% end %>
                         </div>
                       </div>

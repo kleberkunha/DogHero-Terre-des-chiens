@@ -127,16 +127,12 @@
                                     <h4>Creator: <%= event.user_id %></h4>
                                     <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
                                     <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
-                                    <a href="#" class="btn btn-primary"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+                                    <%= button_to "delete", event_path(:id => event.id), :method => :delete %>
+
                                 </div>
                             </div>
                         <% end %>
                     </div>
-
-
-
-
-
                     <div class="col-sm-6 mb-3">
                         <div class="card  h-100">
                             <div class="card-body">
