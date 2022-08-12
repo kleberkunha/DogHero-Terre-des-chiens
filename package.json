@@ -1,5 +1,5 @@
 {
-  "name": "DogHero",
+  "name": "doghero",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.5",
@@ -13,5 +13,27 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.9.3"
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kleberkunha/DogHero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kleberkunha/DogHero/issues"
+  },
+  "homepage": "https://github.com/kleberkunha/DogHero#readme",
+  "engines": {
+    "node": "12.12.12"
   }
 }
