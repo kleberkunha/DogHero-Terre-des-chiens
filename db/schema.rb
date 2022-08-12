@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_101415) do
+ActiveRecord::Schema.define(version: 2022_08_12_153805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2022_08_12_101415) do
     t.integer "subscriber_id"
     t.bigint "event_id", default: 0
     t.text "description"
-    t.index ["user_id", "event_id"], name: "index_events_on_user_id_and_event_id", unique: true
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -89,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_08_12_101415) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "users"
   add_foreign_key "subscribers", "events"
   add_foreign_key "subscribers", "users"
 end

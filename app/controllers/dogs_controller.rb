@@ -37,14 +37,13 @@ class DogsController < ApplicationController
 
   # PATCH/PUT /dogs/1 or /dogs/1.json
   def update
-    respond_to do |format|
-      if @dog.update(dog_params)
-        format.html { redirect_to dog_url(@dog), notice: "Dog was successfully updated." }
-        format.json { render :show, status: :ok, location: @dog }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @dog.errors, status: :unprocessable_entity }
-      end
+    @dog = Dog.find(params[:id])
+    if @dog.update(params.require(:dog).permit(:name, :age, :description, :avatar))
+      flash[:success] = "Dog successfully updated!"
+      redirect_to user_url(current_user)
+    else
+      flash.now[:error] = "To-do item update failed"
+      render :edit
     end
   end
 
@@ -66,6 +65,6 @@ class DogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dog_params
-      params.require(:dog).permit(:name, :age, :description)
+      params.require(:dog).permit(:name, :age, :description, :avatar)
     end
 end
