@@ -1,0 +1,31 @@
+name: JS lint
+
+on: [push, pull_request]
+
+jobs:
+  js-lint:
+    name: JS Lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: Install yarn maybe
+        run: which yarn || npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint

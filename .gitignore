@@ -30,4 +30,7 @@
 yarn-debug.log*
 .yarn-integrity
 node_modules
+<<<<<<< HEAD
 /lib
+=======
+>>>>>>> 005-Creating_user_avatar

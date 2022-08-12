@@ -2,15 +2,32 @@ class EventsController < ApplicationController
   load_and_authorize_resource :only => [:new, :edit, :destroy] 
 
   before_action :set_event, only: [ :show, :edit, :update, :destroy ]
+  before_action :authenticate_user!
 
+  
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order(created_at: :desc)
 
+  end
+
+  def find_event
+    Event.find(params[:id])
   end
 
   # GET /events/1 or /events/1.json
   def show
+    @events = Event.all
+
+    @users = []
+    subscribers = Subscriber.where(event_id: find_event)
+    subscribers.each do |subscriber|
+      user_id = subscriber.user_id
+      user = User.find(user_id)
+      @users<<user
+    end
+    @users
+    @subscribers = @event.subscribers
   end
 
   # GET /events/new
@@ -21,6 +38,18 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
   end
+
+  def get_event_of_user
+
+    @single_event = Event.where(user_id: current_user.id)
+
+  end
+
+
+
+
+
+
 
   # POST /events or /events.json
   def create
@@ -56,7 +85,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to user_path(current_user), notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -69,6 +98,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :body, :start_date, :end_date, :price)
+      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :description, :subscriber, :first_name, :avatar)
     end
 end

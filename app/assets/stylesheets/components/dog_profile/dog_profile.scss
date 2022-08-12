@@ -1,8 +1,4 @@
-.dog_image_profile{
-    max-width: 200px;
-    max-height: 113px;
-    background-size: contain;
-}
+
 
 .info_dog{
     padding-left: 50px;
@@ -14,4 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.btn-edit-dog{
+    background-color: rgba(0, 128, 0, 0.349);
 }

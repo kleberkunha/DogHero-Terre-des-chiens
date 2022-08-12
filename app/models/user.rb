@@ -8,9 +8,18 @@ class User < ApplicationRecord
   #i need to create the validation for password when SignUp
 
 
+  has_one_attached :avatar
   
-  has_many :events
+  has_many :events, dependent: :delete_all
   has_many :dogs
+  has_many :subscribers
+
+
+  enum role: [:user, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+  def set_default_role
+    self.role ||= :user
+  end
 
 
 
@@ -24,4 +33,7 @@ class User < ApplicationRecord
   end
 
 
+  def self.search(search)
+    where("(first_name || last_name) LIKE :q", :q => "%#{search}%")
+  end
 end
