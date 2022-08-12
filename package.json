@@ -1,5 +1,8 @@
 {
   "name": "doghero",
+  "engines": {
+    "node": "v12.22.12"
+  },
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.5",
@@ -32,8 +35,6 @@
   "bugs": {
     "url": "https://github.com/kleberkunha/DogHero/issues"
   },
-  "homepage": "https://github.com/kleberkunha/DogHero#readme",
-  "engines": {
-    "node": "12.12.12"
-  }
+  "homepage": "https://github.com/kleberkunha/DogHero#readme"
+
 }
