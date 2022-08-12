@@ -8,7 +8,9 @@
             <div class="e-navlist e-navlist--active-bold">
               <div class="">
                 <div class="card" style="width: 70%;">
-                  <img class="card-img-top" src="https://weezevent.com/wp-content/uploads/2019/08/27143613/woof-run-evenement-canin-1000x640.jpg" alt="Card image cap">
+                  <% if @event.avatar.attached? %>
+                    <%= image_tag @event.avatar, width: "100%" %>
+                  <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= @event.title%></h5>
                     <p class="card-text"><%= @event.description%></p>

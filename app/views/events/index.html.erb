@@ -15,33 +15,22 @@
     <% @events.each do |event| %>
       <div class="col-lg-3 p-4">
         <div class="card">
-          <img class="card-img-top" src="https://weezevent.com/wp-content/uploads/2019/08/27143613/woof-run-evenement-canin-1000x640.jpg" alt="Card image cap">
           
-          
-          
+          <% if event.avatar.attached? %>
+            <%= image_tag event.avatar, width: "100%" %>
+          <% else %>
+            <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
+          <% end %>
           <div class="card-body d-flex flex-column pt-0">
             <div class="widget-49">
-              
-              
-              
               <div class="widget-49-title-wrapper">
                 <p class="card-text"><h3 class="text-center mt-0"><%= event.title %></h3></p>
                     <h5>Start on : <%= event.start_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
                     <h5>Ends on : <%= event.end_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
                     <h5>Price: <%= event.price%></h5>
               </div>
-
-              <!--THIS FORM SEND THE INFORMATION TO SUBSCRIPTION CONTROLLER USING THE PARAMS OF EVENT && USER --->
-              
-              
             </div>
           </div>
-
-
-
-
-
-
 
           <div class="col-lg-12 p-0">
           
