@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   # GET /events/1 or /events/1.json
   def show
     @events = Event.all
+
     @users = []
     subscribers = Subscriber.where(event_id: find_event)
     subscribers.each do |subscriber|
@@ -95,6 +96,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :subscriber)
+      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :description, :subscriber, :first_name)
     end
 end
