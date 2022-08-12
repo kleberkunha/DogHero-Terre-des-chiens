@@ -5,10 +5,10 @@ require "active_support/values/time_zone"
 
 class Time
   DATE_FORMATS = {
-    db: "%Y-%m-%d %H:%M:%S",
-    number: "%Y%m%d%H%M%S",
-    nsec: "%Y%m%d%H%M%S%9N",
-    usec: "%Y%m%d%H%M%S%6N",
+    db: "%d-%m-%Y %H:%M:%S",
+    number: "%d%m%y%H%M%S",
+    nsec: "%d%m%y%H%M%S%9N",
+    usec: "%d%m%y%H%M%S%6N",
     time: "%H:%M",
     short: "%d %b %H:%M",
     long: "%B %d, %Y %H:%M",

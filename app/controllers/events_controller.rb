@@ -9,11 +9,23 @@ class EventsController < ApplicationController
 
   end
 
+  def find_event
+    Event.find(params[:id])
+  end
+
   # GET /events/1 or /events/1.json
   def show
-    @event_id = Event.all
+    @events = Event.all
 
-    @subscriber = Subscriber.where(event_id: @event_id)
+    @users = []
+    subscribers = Subscriber.where(event_id: find_event)
+    subscribers.each do |subscriber|
+      user_id = subscriber.user_id
+      user = User.find(user_id)
+      @users<<user
+    end
+    @users
+    @subscribers = @event.subscribers
   end
 
   # GET /events/new
@@ -23,6 +35,12 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+  end
+
+  def get_event_of_user
+
+    @single_event = Event.where(user_id: current_user.id)
+
   end
 
 
@@ -65,7 +83,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to user_path(current_user), notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -78,6 +96,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :subscribe)
+      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :description, :subscriber, :first_name)
     end
 end

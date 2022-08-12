@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :address))
+    if @user.update(params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :address, :avatar))
       flash[:success] = "User successfully updated!"
       redirect_to user_url(current_user)
     else
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:users).permit(:first_name, :last_name, :email, :address, :phone_number, :search)
+    params.require(:users).permit(:first_name, :last_name, :email, :address, :phone_number, :search, :subscriber, :avatar)
   end
 
 

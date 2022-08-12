@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Events</h1>
 
 <div class="container-fluid">
@@ -10,43 +8,77 @@
     </div>
   </div>
 </div>
+
+
 <div class="container-fluid main-events" style="width: 100%;">
   <div class="row" >
     <% @events.each do |event| %>
       <div class="col-lg-3 p-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-              <h5 class="card-title"><%= event.title%></h5>
-          </div>
-          <div class="card-body pt-0">
+        <div class="card">
+          <img class="card-img-top" src="https://weezevent.com/wp-content/uploads/2019/08/27143613/woof-run-evenement-canin-1000x640.jpg" alt="Card image cap">
+          
+          
+          
+          <div class="card-body d-flex flex-column pt-0">
             <div class="widget-49">
+              
+              
+              
               <div class="widget-49-title-wrapper">
-                <p class="card-text"><%= event.body %></p>
-                <h5>Start: <%= event.start_date %></h5>
-                <h5>Ends: <%= event.start_date %></h5>
-                <h5>Price: <%= event.price %></h5>
-                <h4>Creator: <%= event.user_id %></h4>
+                <p class="card-text"><h3 class="text-center mt-0"><%= event.title %></h3></p>
+                    <h5>Start on : <%= event.start_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
+                    <h5>Ends on : <%= event.end_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
+                    <h5>Price: <%= event.price%></h5>
               </div>
 
-              <!--THIS FORM SEND THE INFORMATION TO SUBSCRIPTION CONTROLLER --->
+              <!--THIS FORM SEND THE INFORMATION TO SUBSCRIPTION CONTROLLER USING THE PARAMS OF EVENT && USER --->
+              
+              
+            </div>
+          </div>
 
-              N¤ of Subscribers : <%= event.subscribers.count %>
-              <% subscriber = current_user.subscribers.find_by(event: event)%>
-              <% if subscriber.nil?%>
-                <form action="/subscribers" method="post">
-                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                  <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                  <input type="submit" value="Subscribe">
-                </form>
-              <% else%>
-                <form action="<%= subscriber_path(subscriber)%>" method="post">
-                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                  <input type="hidden" name="_method" value="DELETE">
-                  <input type="submit" value="Unsubscribe">
-                </form>
 
-                
+
+
+
+
+
+          <div class="col-lg-12 p-0">
+          
+            <div class="col-sm d-flex justify-content-end  align-items-end p-0">
+
+
+
+              <% subscriber = current_user.subscribers.find_by(user_id: current_user.id, event_id: event.id)%>
+              <% if event.user_id === current_user.id%>
+                <%= link_to 'SHOW', event, class:"btn-show"%>
+                <%= link_to 'EDIT', edit_event_path(event), class:"btn-edit" %>
+              <% else %>
+                <% if subscriber.nil?%>
+                  <form action="/subscribers" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                    <input class="subscribe-button"  type="submit" value="SUBSCRIBE">
+                  </form>
+                <% else%>
+                  <form  action="<%= subscriber_path(subscriber)%>" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                    <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
+                  </form>
+                <% end %>
               <% end %>
+
+
+
+              <div class="counter__item second__item">
+                <div class="counter__item__text">
+                  <i class="fa-solid fa-shield-dog fa-2x"></i>
+                  <h2 class="counter_num "><%= event.subscribers.count %></h2>
+                  <h6 class="counter_num ">Subscribers</h6>
+                </div>
+              </div>
             </div>
           </div>
         </div>
