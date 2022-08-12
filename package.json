@@ -1,11 +1,11 @@
 {
   "name": "DogHero",
-  "engines": {
-    "node": "v12.12.12"
-    },
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/kleberkunha/DogHero.git",
   "author": "kleberkunha <kleberkunha@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "v12.22.12"
+  }
 }
