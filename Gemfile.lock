@@ -122,10 +122,8 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.4.2)
+    pg (1.4.3)
     public_suffix (4.0.7)
     puma (4.3.12)
       nio4r (~> 2.0)
@@ -186,7 +184,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.3.0)
+    selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -237,7 +235,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
