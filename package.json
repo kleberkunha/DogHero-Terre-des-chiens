@@ -10,7 +10,9 @@
   "engines": {
     "node": "v12.22.12"
   },
-  "dependencies": {},
+  "dependencies": {
+      "@rails/webpacker": "6.0.0.rc.6"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
