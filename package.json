@@ -1,11 +1,30 @@
 {
-  "name": "DogHero",
+  "name": "doghero",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/kleberkunha/DogHero.git",
-  "author": "kleberkunha <kleberkunha@hotmail.com>",
-  "license": "MIT",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "engines": {
     "node": "v12.22.12"
-  }
+  },
+  "dependencies": {
+      "@rails/webpacker": "6.0.0.rc.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kleberkunha/DogHero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kleberkunha/DogHero/issues"
+  },
+  "homepage": "https://github.com/kleberkunha/DogHero#readme"
 }
