@@ -12,66 +12,77 @@
 
 <div class="container-fluid main-events" style="width: 100%;">
   <div class="row" >
-    <% @events.each do |event| %>
-      <div class="col-lg-3 p-4">
-        <div class="card">
-          
-          <% if event.avatar.attached? %>
-            <%= image_tag event.avatar, width: "100%" %>
-          <% else %>
-            <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
-          <% end %>
-          <div class="card-body d-flex flex-column pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <p class="card-text"><h3 class="text-center mt-0"><%= event.title %></h3></p>
-                    <h5>Start on : <%= event.start_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
-                    <h5>Ends on : <%= event.end_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
-                    <h5>Price: <%= event.price%></h5>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-12 p-0">
-          
-            <div class="col-sm d-flex justify-content-end  align-items-end p-0">
+    
+  </div>
+</div>
 
 
 
-              <% subscriber = current_user.subscribers.find_by(user_id: current_user.id, event_id: event.id)%>
-              <% if event.user_id === current_user.id%>
-                <%= link_to 'SHOW', event, class:"btn-show"%>
-                <%= link_to 'EDIT', edit_event_path(event), class:"btn-edit" %>
+
+
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container mx-auto">
+
+      <div class="row g-3">
+        <% @events.each do |event| %>
+          <div class="col-lg-3 p-4">
+            <div class="card">
+              
+              <% if event.avatar.attached? %>
+                <%= image_tag event.avatar, width: "100%" %>
               <% else %>
-                <% if subscriber.nil?%>
-                  <form action="/subscribers" method="post">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                    <input class="subscribe-button"  type="submit" value="SUBSCRIBE">
-                  </form>
-                <% else%>
-                  <form  action="<%= subscriber_path(subscriber)%>" method="post">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                    <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
-                  </form>
-                <% end %>
+                <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
               <% end %>
+              <div class="card-body d-flex flex-column pt-0">
+                <div class="widget-49">
+                  <div class="widget-49-title-wrapper">
+                    <p class="card-text"><h3 class="text-center mt-0"><%= event.title %></h3></p>
+                        <h5>Start on : <%= event.start_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
+                        <h5>Ends on : <%= event.end_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
+                        <h5>Price: <%= event.price%></h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 p-0">
+                <div class="col-sm d-flex justify-content-end  align-items-end p-0">
+                  <% subscriber = current_user.subscribers.find_by(user_id: current_user.id, event_id: event.id)%>
+                  <% if event.user_id === current_user.id%>
+                    <%= link_to 'SHOW', event, class:"btn-show"%>
+                    <%= link_to 'EDIT', edit_event_path(event), class:"btn-edit" %>
+                  <% else %>
+                    <% if subscriber.nil?%>
+                      <form action="/subscribers" method="post">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                        <input class="subscribe-button"  type="submit" value="SUBSCRIBE">
+                      </form>
+                    <% else%>
+                      <form  action="<%= subscriber_path(subscriber)%>" method="post">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                        <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
+                      </form>
+                    <% end %>
+                  <% end %>
 
 
 
-              <div class="counter__item second__item">
-                <div class="counter__item__text">
-                  <i class="fa-solid fa-shield-dog fa-2x"></i>
-                  <h2 class="counter_num "><%= event.subscribers.count %></h2>
-                  <h6 class="counter_num ">Subscribers</h6>
+                  <div class="counter__item second__item">
+                    <div class="counter__item__text">
+                      <i class="fa-solid fa-shield-dog fa-2x"></i>
+                      <h2 class="counter_num "><%= event.subscribers.count %></h2>
+                      <h6 class="counter_num ">Subscribers</h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-</div>
+
+</main>
