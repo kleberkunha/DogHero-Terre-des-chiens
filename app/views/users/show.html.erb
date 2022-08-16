@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="main-body">
     
           <nav aria-label="breadcrumb" class="main-breadcrumb">
@@ -74,9 +74,11 @@
                                     <li class="list-group-item"><%= dog.description%></li>
                                     </ul>
                                 </div>
-                                <div class="col-sm-2 btn-edit-dog">
-                                    <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
-                                </div>
+                                <% if dog.user_id === current_user.id%>
+                                    <div class="col-sm-2 btn-edit-dog">
+                                        <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
+                                    </div>
+                                <% end %>
                             </div>
                             
                         </div>
@@ -87,22 +89,53 @@
 
             <div class="col-sm-12">
                 <div class="row gutters-sm">
-                    <div class="col-sm-6 mb-3">
+                    <div class="col-sm-6 p-1">
                         <h3 class="text-center">My events</h3>
                         <hr>
                         <%= link_to 'New Event', new_event_path %>
                     </div>
-                    <div class="col-sm-6 mb-3">
+                    <div class="col-sm-6 p-1">
                         <h3 class="text-center">Events that i subscribe</h3>
                         <hr>
                     </div>
                 </div>
             </div>
-            <div class="container col-sm-12">
-                <div class="row gutters-sm">
-                    <div class="col-sm-6  my_event_user_profile mb-3">
+
+
+
+            <div class="container-fluid mx-auto  d-flex p-0 ">
+                <div class="row col-md-6 m-0 p-0 my-events p-0">
                         <% @events.each do |event| %>
-                            <div class="card h-100" style="width: 18rem;">
+                            <div class="col-md-4 p-1">
+
+                                <div class="card" style="width: 18rem;">
+                                    <% if event.avatar.attached? %>
+                                        <%= image_tag event.avatar, width: "100%" %>
+                                    <% else %>
+                                        <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
+                                    <% end %>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%= event.title %></h5>
+                                        <p class="card-text"><%= event.body %></p>
+                                        <h5>Start: <%= event.start_date %></h5>
+                                        <h5>Ends: <%= event.start_date %></h5>
+                                        <h5>Price: <%= event.price %></h5>
+                                        <h4>Creator: <%= event.user_id %></h4>
+                                        <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
+                                        <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
+                                        <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
+
+                                    </div>
+                                </div>  
+                            </div>
+
+                        <% end %>
+                </div>
+                <hr/>
+                <div class="row col-md-6 m-0 p-0 my-events-subscribe">
+                    <% @subscribed_events.each do |event| %>
+                        <div class="col-md-4 ">
+                            <div class="card" style="width: 18rem;">
                                 <% if event.avatar.attached? %>
                                     <%= image_tag event.avatar, width: "100%" %>
                                 <% else %>
@@ -120,49 +153,34 @@
                                     <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
 
                                 </div>
-                            </div>
-                        <% end %>
-                    </div>
-                    <div class="col-sm-6  my_event_user_profile mb-3">
-                        <% @subscribed_events.each do |e| %>
-                            <div class="card h-100" style="width: 18rem;">
-                                <% if e.avatar.attached? %>
-                                    <%= image_tag e.avatar, width: "100%" %>
-                                <% else %>
-                                    <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
-                                <% end %>
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= e.title %></h5>
-                                    <p class="card-text"><%= e.body %></p>
-                                    <h5>Start: <%= e.start_date %></h5>
-                                    <h5>Ends: <%= e.start_date %></h5>
-                                    <h5>Price: <%= e.price %></h5>
-                                    <h4>Creator: <%= e.user_id %></h4>
-
-                                    <% subscriber = current_user.subscribers.find_by(user_id: current_user.id, event_id: e.id)%>
-                                    <% if subscriber.nil?%>
-                                    <form action="/subscribers" method="post">
-                                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                                        <input type="hidden" name="subscriber[event_id]" value="<%= e.id %>">
-                                        <input class="subscribe-button"  type="submit" value="SUBSCRIBE">
-                                    </form>
-                                    <% else%>
-                                    <form  action="<%= subscriber_path(subscriber)%>" method="post">
-                                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="subscriber[event_id]" value="<%= e.id %>">
-                                        <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
-                                    </form>
-                                    <% end %>
-                                </div>
-                            </div>
-                        <% end %>
-                    </div>
+                            </div>     
+                        </div>
+                    <% end %>
                 </div>
+                <hr/>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

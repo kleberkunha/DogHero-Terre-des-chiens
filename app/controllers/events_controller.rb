@@ -37,6 +37,20 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
+
+    if @event === nil
+      render 'errors/event_not_found'
+      return
+    end
+
+    unless current_user.id ===  @event.user_id
+      render 'errors/not_found'
+      return
+    end
+
+
+
   end
 
   def get_event_of_user
