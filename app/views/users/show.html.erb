@@ -74,9 +74,11 @@
                                     <li class="list-group-item"><%= dog.description%></li>
                                     </ul>
                                 </div>
-                                <div class="col-sm-2 btn-edit-dog">
-                                    <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
-                                </div>
+                                <% if dog.user_id === current_user.id%>
+                                    <div class="col-sm-2 btn-edit-dog">
+                                        <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
+                                    </div>
+                                <% end %>
                             </div>
                             
                         </div>
@@ -131,7 +133,7 @@
                 </div>
                 <hr/>
                 <div class="row col-md-6 m-0 p-0 my-events-subscribe">
-                    <% @events.each do |event| %>
+                    <% @subscribed_events.each do |event| %>
                         <div class="col-md-4 ">
                             <div class="card" style="width: 18rem;">
                                 <% if event.avatar.attached? %>

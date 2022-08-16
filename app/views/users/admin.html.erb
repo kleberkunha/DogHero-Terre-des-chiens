@@ -41,7 +41,11 @@
                                           <p><%= user.id %></p>
                                         </td>
                                         <td class="align-middle text-center">
-                                          <div class="bg-light d-inline-flex justify-content-center align-items-center align-top" style="width: 35px; height: 35px; border-radius: 3px;"><i class="fa fa-fw fa-photo" style="opacity: 0.8;"></i></div>
+                                          <div class="bg-light d-inline-flex justify-content-center align-items-center align-top" style="width: 35px; height: 35px; border-radius: 3px;">
+                                            <% if user.avatar.attached? %>
+                                                <%= image_tag user.avatar, width: "100%" %>
+                                            <% end %>
+                                          </div>
                                         </td>
                                         <td class="text-nowrap align-middle"><%= user.first_name %>&nbsp<%= user.last_name %></td>
                                         <td class="text-nowrap align-middle"><span>09 Dec 2017</span></td>

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
 
-
   def index
     @user = User.all
   end
@@ -28,9 +27,16 @@ class UsersController < ApplicationController
     end
   end
 
-  
   def show
+    
+
     @user = User.find(params[:id])
+
+
+    unless current_user.id == @user.id
+      render 'errors/not_found'
+      return
+    end
 
     @events = Event.all.where(user_id: current_user.id)
 
