@@ -1,9 +1,8 @@
-<h1>Events</h1>
+<h1 class="text-center p-3 mt-3">Events</h1>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-3 ml-3">
-      <%= link_to 'Home', root_path %>
       <%= link_to 'New Event', new_event_path %>
     </div>
   </div>
@@ -15,14 +14,9 @@
     
   </div>
 </div>
-
-
-
-
-
 <main>
   <div class="album py-5 bg-light">
-    <div class="container mx-auto">
+    <div class="container-fluid">
 
       <div class="row g-3">
         <% @events.each do |event| %>
