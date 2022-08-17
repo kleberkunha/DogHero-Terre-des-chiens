@@ -6,6 +6,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-top: -1px;
 }
 .nav-item{
     padding: 0px;
@@ -19,11 +20,15 @@
     font-weight: 600;
 }
 .nav-item input:hover{
-    border-bottom: 2px solid rgba(255, 255, 255, 0.342);
     cursor: pointer;
-    margin-top: -2px;
+    border-bottom: 1px solid orange;
+    margin-top: -1px;
 }
 
 .logo_doghero{
     margin-left: -100px;
+}
+
+.navbar-toggler{
+    background-color: white !important;
 }
