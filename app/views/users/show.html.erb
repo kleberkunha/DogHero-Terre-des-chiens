@@ -5,6 +5,9 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html"><%=link_to 'Home', root_path %></a></li>
               <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <%= link_to "Add new dog", new_dog_path%></li>
+
             </ol>
           </nav>
     
@@ -55,55 +58,34 @@
                 <% end %>
             </div>
             <div class="col-md-8">
-                <div class="card mb-3" style="height: 51%;">
+                <div class="container dog-area">
+
                     <% @dogs.each do |dog| %>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-3 border">
-                                <% if @user.avatar.attached? %>
-                                        <%= image_tag dog.avatar, width: "70%" %>
-                                <% end %>
-                                </div>
-                                <div class="col-sm border">
-                                    <ul class="list-group">
-                                    <div class="d-flex">
-                                        <li class="list-group-item col-sm-2"><%= dog.name%></li>
-                                        <li class="list-group-item col-sm-2"><%= dog.age%></li>
-                                        <li class="list-group-item col-sm-2">Castre ?</li>
-                                    </div>
-                                    <li class="list-group-item"><%= dog.description%></li>
-                                    </ul>
-                                </div>
+                        <div class="card row flex-row">
+                            <% if dog.avatar.attached? %>
+                                <%= image_tag dog.avatar, width: "70%", class:"col-lg-4 card-img-start img-fluid p-0" %>
+                            <% end %>
+                            <div class="col-lg-8 card-body">
+                                <h1 class="card-title">Name : <%= dog.name%></h1>
+                                <p>Age : <%= dog.age%></p>  &nbsp <p>Castrado ?</p>
+                                <p>Macho ou femea</p>
+                                <p class="card-text">Dog description : <%= dog.description%></p>
+
                                 <% if dog.user_id === current_user.id%>
-                                    <div class="col-sm-2 btn-edit-dog">
+                                    <div class="col-sm-12 btn-edit-dog">
                                         <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
                                     </div>
                                 <% end %>
                             </div>
-                            
+
                         </div>
                     <% end %>
-                    <%= link_to "Add new dog", new_dog_path%>
                 </div>
+
+
+
             </div>
-
-            <div class="col-sm-12">
-                <div class="row gutters-sm">
-                    <div class="col-sm-6 p-1">
-                        <h3 class="text-center">My events</h3>
-                        <hr>
-                        <%= link_to 'New Event', new_event_path %>
-                    </div>
-                    <div class="col-sm-6 p-1">
-                        <h3 class="text-center">Events that i subscribe</h3>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="container-fluid mx-auto  d-flex p-0 ">
+            <div class="container-fluid mx-auto container-dogs d-flex p-0 ">
                 <div class="row col-md-6 m-0 p-0 my-events p-0">
                         <% @events.each do |event| %>
                             <div class="col-md-4 p-1">
