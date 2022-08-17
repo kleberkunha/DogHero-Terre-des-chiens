@@ -3,8 +3,11 @@
     
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html"><%=link_to 'Home', root_path %></a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                <%=link_to 'Edit my informations', edit_user_path %>
+                <%=link_to 'Change Password', edit_user_registration_path %>
+                <% if @user.admin? %>
+                    <%=link_to 'Admin Page', admin_path %>
+                <% end %>
               <li class="breadcrumb-item active" aria-current="page">
                 <%= link_to "Add new dog", new_dog_path%></li>
 
@@ -50,12 +53,7 @@
                     </ul>
                 </div>
                 
-                <%=link_to 'Edit my informations', edit_user_path %>
-
-                <%=link_to 'Change Password', edit_user_registration_path %>
-                <% if @user.admin? %>
-                    <%=link_to 'Admin Page', admin_path %>
-                <% end %>
+                
             </div>
             <div class="col-md-8">
                 <div class="container dog-area">
@@ -81,37 +79,35 @@
                         </div>
                     <% end %>
                 </div>
-
-
-
             </div>
+
             <div class="container-fluid mx-auto container-dogs d-flex p-0 ">
                 <div class="row col-md-6 m-0 p-0 my-events p-0">
-                        <% @events.each do |event| %>
-                            <div class="col-md-4 p-1">
+                    <% @events.each do |event| %>
+                        <div class="col-md-4 p-1">
 
-                                <div class="card" style="width: 18rem;">
-                                    <% if event.avatar.attached? %>
-                                        <%= image_tag event.avatar, width: "100%" %>
-                                    <% else %>
-                                        <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
-                                    <% end %>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%= event.title %></h5>
-                                        <p class="card-text"><%= event.body %></p>
-                                        <h5>Start: <%= event.start_date %></h5>
-                                        <h5>Ends: <%= event.start_date %></h5>
-                                        <h5>Price: <%= event.price %></h5>
-                                        <h4>Creator: <%= event.user_id %></h4>
-                                        <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
-                                        <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
-                                        <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
+                            <div class="card" style="width: 18rem;">
+                                <% if event.avatar.attached? %>
+                                    <%= image_tag event.avatar, width: "100%" %>
+                                <% else %>
+                                    <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
+                                <% end %>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= event.title %></h5>
+                                    <p class="card-text"><%= event.body %></p>
+                                    <h5>Start: <%= event.start_date %></h5>
+                                    <h5>Ends: <%= event.start_date %></h5>
+                                    <h5>Price: <%= event.price %></h5>
+                                    <h4>Creator: <%= event.user_id %></h4>
+                                    <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
+                                    <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
+                                    <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
 
-                                    </div>
-                                </div>  
-                            </div>
+                                </div>
+                            </div>  
+                        </div>
 
-                        <% end %>
+                    <% end %>
                 </div>
                 <hr/>
                 <div class="row col-md-6 m-0 p-0 my-events-subscribe">
