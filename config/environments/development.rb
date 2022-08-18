@@ -62,29 +62,13 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'https://doghero1.herokuapp.com/', port: 5000 }
 
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                  465,
-    domain:               'gmail.com',
-    user_name:            'hello.kleberkunha@gmail.com',
-    password:             'jftxztkrfkiapzwn',
-    authentication:       'plain',
-    ssl: true
-  }
-
-
-
-
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'doghero1.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.gmail.com',
-    :port           => '587',
+    :port           => '465',
     :authentication => :plain,
     :user_name      => 'hello.kleberkunha@gmail.com',
     :password       => 'jftxztkrfkiapzwn',

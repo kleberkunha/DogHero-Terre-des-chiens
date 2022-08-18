@@ -5,12 +5,7 @@ class UsersController < ApplicationController
     @user = User.all
   end
 
-
-
-
   def search
-
-    
   end
 
   def admin
@@ -28,10 +23,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    
 
     @user = User.find(params[:id])
-
 
     unless current_user.id == @user.id
       render 'errors/not_found'
@@ -40,22 +33,14 @@ class UsersController < ApplicationController
 
     @events = Event.all.where(user_id: current_user.id)
 
-
     @dogs = Dog.where(user_id: current_user.id)
 
     @users = User.all
 
     @user_count = User.count
 
-
-
-
-
-
     @subscribed_events = []
-
     @all_events_that_i_subscribe = Subscriber.where(user_id: params[:id])
-
     @all_events_that_i_subscribe.each do |subscriber|
       event_id = subscriber.event_id
       event = Event.find(event_id)
@@ -63,9 +48,7 @@ class UsersController < ApplicationController
     end
     @subscribed_events
 
-
   end
-
 
   def events
     @user = User.find(params[:id])
@@ -75,8 +58,6 @@ class UsersController < ApplicationController
   def edit
     @user = current_user
   end
-
-
 
 
   def destroy
