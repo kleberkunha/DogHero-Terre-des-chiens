@@ -68,7 +68,6 @@ server {
     try_files $uri @app;
   }
 
-  location = /favicon.ico { access_log off; log_not_found off; }
   location = /robots.txt  { access_log off; log_not_found off; }
 
   location ~ /\.(?!well-known).* {

@@ -20,8 +20,6 @@ END_SQL
 
 copy_data = StringIO.new( <<"END_DATA" )
 "127.0.0.1","","30/Aug/2010:08:21:24 -0700","GET /manual/ HTTP/1.1",404,205
-"127.0.0.1","","30/Aug/2010:08:21:24 -0700","GET /favicon.ico HTTP/1.1",404,209
-"127.0.0.1","","30/Aug/2010:08:21:24 -0700","GET /favicon.ico HTTP/1.1",404,209
 "127.0.0.1","","30/Aug/2010:08:22:29 -0700","GET /manual/ HTTP/1.1",200,11094
 "127.0.0.1","","30/Aug/2010:08:22:38 -0700","GET /manual/index.html HTTP/1.1",200,725
 "127.0.0.1","","30/Aug/2010:08:27:56 -0700","GET /manual/ HTTP/1.1",200,11094
@@ -31,7 +29,6 @@ copy_data = StringIO.new( <<"END_DATA" )
 "127.0.0.1","","30/Aug/2010:08:28:06 -0700","GET /manual/images/left.gif HTTP/1.1",200,60
 "127.0.0.1","","30/Aug/2010:08:28:06 -0700","GET /manual/style/css/manual.css HTTP/1.1",200,18674
 "127.0.0.1","","30/Aug/2010:08:28:06 -0700","GET /manual/style/css/manual-print.css HTTP/1.1",200,13200
-"127.0.0.1","","30/Aug/2010:08:28:06 -0700","GET /manual/images/favicon.ico HTTP/1.1",200,1078
 "127.0.0.1","","30/Aug/2010:08:28:06 -0700","GET /manual/style/css/manual-loose-100pc.css HTTP/1.1",200,3065
 "127.0.0.1","","30/Aug/2010:08:28:14 -0700","OPTIONS * HTTP/1.0",200,0
 "127.0.0.1","","30/Aug/2010:08:28:15 -0700","OPTIONS * HTTP/1.0",200,0

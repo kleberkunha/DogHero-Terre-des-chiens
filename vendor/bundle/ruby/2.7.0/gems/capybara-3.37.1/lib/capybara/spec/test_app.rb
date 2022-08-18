@@ -98,9 +98,6 @@ class TestApp < Sinatra::Base
     %(<pre id="results">#{params[:form].to_yaml}</pre>)
   end
 
-  get '/favicon.ico' do
-    nil
-  end
 
   post '/redirect' do
     redirect '/redirect_again'
