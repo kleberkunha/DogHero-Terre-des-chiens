@@ -60,6 +60,24 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.action_mailer.default_url_options = { host: 'https://doghero1.herokuapp.com/', port: 5000 }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                  465,
+    domain:               'gmail.com',
+    user_name:            'hello.kleberkunha@gmail.com',
+    password:             'jftxztkrfkiapzwn',
+    authentication:       'plain',
+    ssl: true
+  }
+
+
+
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'doghero1.herokuapp.com'
@@ -68,8 +86,8 @@ Rails.application.configure do
     :address        => 'smtp.gmail.com',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['hello.kleberkunha@gmail.com''],
-    :password       => ENV['jftxztkrfkiapzwn'],
+    :user_name      => 'hello.kleberkunha@gmail.com',
+    :password       => 'jftxztkrfkiapzwn',
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
