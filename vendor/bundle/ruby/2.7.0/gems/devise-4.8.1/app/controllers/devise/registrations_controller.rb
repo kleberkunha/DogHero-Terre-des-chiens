@@ -104,6 +104,7 @@ class Devise::RegistrationsController < DeviseController
   # RegistrationsController.
   def sign_up(resource_name, resource)
     sign_in(resource_name, resource)
+    
   end
 
   # The path used after sign up. You need to overwrite this method

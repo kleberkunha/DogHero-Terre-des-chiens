@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  devise :registerable, :confirmable
+
+
+  devise :database_authenticatable, :registerable, :confirmable,
+  :recoverable, :rememberable, :trackable, :validatable
+
 
   before_save { email.downcase! }
 
@@ -23,6 +29,7 @@ class User < ApplicationRecord
 
 
 
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,4 +43,16 @@ class User < ApplicationRecord
   def self.search(search)
     where("(first_name || last_name) LIKE :q", :q => "%#{search}%")
   end
+
+
+  private
+
+  def confirmation
+    if self.confirm.blank?
+      self.confirm = SecureRandom.urlsafe_base64.to_s
+    end
+  end
+
+
+
 end
