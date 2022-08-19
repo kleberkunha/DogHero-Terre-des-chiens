@@ -1,8 +1,7 @@
 class UserMailer < ActionMailer::Base
-   default :from => "hello.kleberkunha@gmail.com"
-
-   def registration_confirmation(user)
-      @user = user
-      mail(:to => @user.email, :subject => "Registration Confirmation")
-   end
+   def new_order_email
+      @user = User.find(params[:id])
+  
+      mail(to: @user.email, subject: "You got a new order!")
+    end
 end
