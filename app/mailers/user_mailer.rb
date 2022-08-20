@@ -1,7 +1,10 @@
 class UserMailer < ActionMailer::Base
-    default :from => "hello.kleberkunha@gmail.com"
+   default from: 'hello.kleberkunha@gmail.com'
+   def welcome_email
+      @user = params[:user]
 
- def registration_confirmation(user)
-    @user = user
-    mail(:to => @user.email, :subject => "Registration Confirmation")
+      @url  = 'https://doghero1.herokuapp.com/'
+  
+      mail(to: @user.email, subject: "DogHero Email confirmation !")
+   end
  end
