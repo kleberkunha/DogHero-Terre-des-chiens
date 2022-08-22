@@ -5,6 +5,18 @@ class UsersController < ApplicationController
     @user = User.all
   end
 
+  def create
+    super do 
+      if @user.save
+        # Deliver the signup email
+        UserNotifierMailer.send_signup_email(@user).deliver
+        redirect_to(@user, :notice => 'User created')
+      else
+        render :action => 'new'
+      end
+    end
+
+  end
 
 
 
