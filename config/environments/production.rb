@@ -121,8 +121,8 @@ Rails.application.configure do
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.smtp_settings = {
-    user_name: ENV['SEND_USERNAME'],
-    password: ENV['SEND_PASS'], # This is the secret sendgrid API key which was issued during API key creation
+    user_name: ENV['hello.kleberkunha@gmail.com'],
+    password: ENV['@12Skatedrinke12'], # This is the secret sendgrid API key which was issued during API key creation
     domain: 'doghero1.herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
