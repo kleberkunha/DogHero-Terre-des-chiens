@@ -65,9 +65,13 @@
                             <% end %>
                             <div class="col-lg-8 card-body">
                                 <h1 class="card-title">Name : <%= dog.name%></h1>
-                                <p>Age : <%= dog.age%></p>  &nbsp <p>Castrado ?</p>
-                                <p>Macho ou femea</p>
-                                <p class="card-text">Dog description : <%= dog.description%></p>
+                                <p>Age : <%= dog.age%></p>
+                                <p>Gender ? :<%= format_gender(dog) %></p>
+                                <p>Castrado ? :<%= dog.castrated %></p>
+                                <p>Amigo ? :<%= dog.friendly %></p>
+                                <p>Alergico ? :<%= dog.alergic %></p>
+                                <p>Treinado ? :<%= dog.trained %></p>
+                                <p>Descriçao : <%= dog.description %></p>
 
                                 <% if dog.user_id === current_user.id%>
                                     <div class="col-sm-12 btn-edit-dog">
