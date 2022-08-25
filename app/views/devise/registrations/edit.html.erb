@@ -41,3 +41,120 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+
+
+
+
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 col-lg-10">
+				<div class="wrap d-md-flex">
+					<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+						<div class="text w-100">
+							<h2>Welcome to Sign in</h2>
+							<p>Already have a account?</p>
+							<%= link_to "Log in", new_user_session_path, :class => "btn btn-white btn-outline-white"%>
+						</div>
+				</div>
+				<div class="login-wrap p-4 p-lg-5">
+					<div class="d-flex">
+						<div class="w-100">
+							<h3 class="mb-4">Sign In</h3>
+						</div>
+						<div class="w-100">
+
+						</div>
+						
+					</div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+
+
+
+
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Update" %>
+            </div>
+          <% end %>
+
+
+
+
+
+
+
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="form-group mb-3">
+                <label class="label" for="name">Username</label><br/>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+              </div>
+
+            <div class="form-group mb-3">
+              <label class="label" for="name">Email</label><br/>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+
+
+
+              <div class="form-group mb-3">
+                <label class="label" for="password">Password</label>
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control"%>
+              </div>
+              <div class="form-group mb-3">
+                <label class="label" for="password">Confirm Password</label>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.submit "Sign up", class:"form-control btn btn-primary submit px-3" %>
+              </div>
+              <div class="form-group d-md-flex">
+                <div class="w-50 text-left">
+
+                </div>
+                <div class="w-50 text-md-right">
+                  <%= render "devise/shared/links" %>
+                </div>
+              </div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

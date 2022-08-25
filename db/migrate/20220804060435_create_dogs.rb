@@ -4,6 +4,14 @@ class CreateDogs < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :age
       t.string :description
+      t.string :gender
+      t.string :friendly
+      t.string :castrated
+      t.string :alergic
+      t.string :trained
+      t.integer :user_id
+
+      
 
       t.timestamps
     end
