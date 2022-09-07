@@ -38,7 +38,7 @@ class DogsController < ApplicationController
   # PATCH/PUT /dogs/1 or /dogs/1.json
   def update
     @dog = Dog.find(params[:id])
-    if @dog.update(params.require(:dog).permit(:name, :age, :description, :avatar))
+    if @dog.update(params.require(:dog).permit(:name, :age, :description, :avatar, :gender, :friendly, :castrated, :trained, :alergic))
       flash[:success] = "Dog successfully updated!"
       redirect_to user_url(current_user)
     else
@@ -65,6 +65,6 @@ class DogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dog_params
-      params.require(:dog).permit(:name, :age, :description, :avatar)
+      params.require(:dog).permit(:name, :age,:gender, :friendly, :castrated, :trained, :alergic, :description, :avatar)
     end
 end

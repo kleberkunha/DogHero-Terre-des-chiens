@@ -40,9 +40,14 @@ ActiveRecord::Schema.define(version: 2022_08_18_084809) do
     t.string "name"
     t.integer "age"
     t.string "description"
+    t.string "gender"
+    t.string "friendly"
+    t.string "castrated"
+    t.string "alergic"
+    t.string "trained"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
   end
 
   create_table "events", force: :cascade do |t|
