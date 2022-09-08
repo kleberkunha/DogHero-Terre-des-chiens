@@ -120,13 +120,13 @@ Rails.application.configure do
 
   
   config.action_mailer.smtp_settings = {
-    :user_name => 'rodrigo@rtoledo.inf.br', # This is the string literal 'apikey', NOT the ID of your API key
-    :password => 'DH32Pe113pG9_SyDH32Pe113pG9_SyDH32Pe113pG9_Sy', # This is the secret sendgrid API key which was issued during API key creation
-    :domain => 'doghero1.herokuapp.com',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+    user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+    password: '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', # This is the secret sendgrid API key which was issued during API key creation
+    domain: 'heroku.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
 end

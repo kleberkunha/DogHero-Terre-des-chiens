@@ -14,7 +14,7 @@
                 <%= button_to "About", about_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Products", products_path, :method => :get, :form_class => "nav-item nav-link" %>
-                <%= button_to "Profile", user_path(current_user), :method => :get, :form_class => "nav-item nav-link" %>
+                <%= button_to "Profile", admin_user_path(current_user), :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Sign Out", destroy_user_session_path, :method => :get, :form_class => "nav-item nav-link" %>
             </div>
         <% else %>

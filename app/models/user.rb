@@ -5,6 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
   :recoverable, :rememberable, :trackable, :validatable
 
+  #after_create :send_welcome_mail
+  def send_welcome_mail
+    UserMailer.send_signup_email(user: self).deliver_now
+  end
+
 
   before_save { email.downcase! }
 
