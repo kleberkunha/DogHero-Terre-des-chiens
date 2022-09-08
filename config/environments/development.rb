@@ -65,13 +65,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'doghero1.herokuapp.com' }
 
   
-  config.action_mailer.smtp_settings = {
-   address: "smtp.gmail.com",
-   port: 25,
-   domain: "doghero1.herokuapp.com",
-   user_name: "hello.kleberkunha@gmail.com",
-   password: "jftxztkrfkiapzwn",
-   authentication: :plain,
-   enable_starttls_auto: true
-  }
+
 end

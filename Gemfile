@@ -5,6 +5,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'cancancan'
+gem 'sendgrid-ruby'
 
 gem 'ransack'
 
