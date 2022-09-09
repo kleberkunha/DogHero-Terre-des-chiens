@@ -45,6 +45,20 @@
     color: black !important;
     font-weight: 600;
 }
+.btn-delete{
+    padding: 10px;
+    background-color: rgba(0, 128, 0, 0.349);
+    color: black !important;
+    font-weight: 600;
+    border: 0;
+}
+
+.btn-delete:hover{
+    background-color: rgba(0, 128, 0, 0.349) !important;
+    text-decoration: none !important;
+    box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.226) !important;
+    cursor: pointer;
+}
 
 .btn-show:hover,
 .btn-edit:hover{

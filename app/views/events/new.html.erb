@@ -2,4 +2,5 @@
 
 <%= render 'form', event: @event %>
 
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back to events', events_path %>
+<%= link_to 'Back to profile', admin_user_path(current_user) %>

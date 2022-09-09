@@ -7,17 +7,9 @@
     </div>
   </div>
 </div>
-
-
-<div class="container-fluid main-events" style="width: 100%;">
-  <div class="row" >
-    
-  </div>
-</div>
 <main>
   <div class="album py-5 bg-light">
     <div class="container-fluid">
-
       <div class="row g-3">
         <% @events.each do |event| %>
           <div class="col-lg-3 p-4">
@@ -44,6 +36,7 @@
                   <% if event.user_id === current_user.id%>
                     <%= link_to 'SHOW', event, class:"btn-show"%>
                     <%= link_to 'EDIT', edit_event_path(event), class:"btn-edit" %>
+                    <%= button_to "DELETE", {:controller => :events, :action => 'destroy', :id => event.id }, :method => :delete, class:"btn-delete" %>
                   <% else %>
                     <% if subscriber.nil?%>
                       <form action="/subscribers" method="post">

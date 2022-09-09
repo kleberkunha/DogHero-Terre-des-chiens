@@ -1,0 +1,61 @@
+.accordion .card {
+	border-radius: 0;
+	border: none;
+	margin-bottom: 5px;
+	padding-bottom: 3px;
+}
+.accordion .card-header {
+	background: #ececec;
+	padding: .4rem 1rem;
+	border-radius: 0;
+	margin-bottom: -2px;
+	font-family: "Roboto", sans-serif;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+	margin: 0 3px 3px 0;
+	border: none;
+}
+.accordion .card-header:hover {
+	background: #e0e0e0;
+}
+.accordion .card-header .btn {
+	font-size: 1.04rem;
+	font-weight: 500;
+	width: 100%;
+	text-align: left;
+	position: relative;
+	top: -2px;
+}
+.accordion .card-header i {
+	float: right;
+	font-size: 1.3rem;
+	font-weight: bold;
+	position: relative;
+	top: 5px;
+}
+.accordion .card-header button:hover {
+	color: #23384e;
+}
+.accordion .card-header.highlight {
+	color: #fff;
+	background: #47b9de;
+}
+.accordion .card-body {
+	text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
