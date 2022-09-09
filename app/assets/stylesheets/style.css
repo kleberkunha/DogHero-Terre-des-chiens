@@ -94,6 +94,7 @@ button,
   position: relative;
   width: 100%;
   overflow: hidden;
+  height: 60vh;
 }
 
 .carousel-inner::after {

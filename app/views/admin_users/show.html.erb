@@ -123,44 +123,32 @@
                                 <h3 class="mb-3">My Events </h3>
                             </div>
                             <%= link_to 'New Event', new_event_path %>
-                            <div class="col-6 text-right">
-                                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                                    <i class="fa fa-arrow-left"></i>
-                                </a>
-                                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </div>
                             <div class="col-12">
                                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="row">
-                                                <% @events.each do |event| %>
-                                                    <div class="col-md-4 mb-3">
-                                                        <div class="card">
-                                                            <% if event.avatar.attached? %>
-                                                                <%= image_tag event.avatar, width: "100%" %>
-                                                            <% else %>
-                                                                <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
-                                                            <% end %>
-                                                            <div class="card-body">
-                                                            <h5 class="card-title"><%= event.title %></h5>
-                                                                <p class="card-text"><%= event.body %></p>
-                                                                <h5>Start: <%= event.start_date %></h5>
-                                                                <h5>Ends: <%= event.start_date %></h5>
-                                                                <h5>Price: <%= event.price %></h5>
-                                                                <h4>Creator: <%= event.user_id %></h4>
-                                                                <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
-                                                                <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
-                                                                <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
-                                                            </div>
-
-                                                        </div>
+                                    <div class="row">
+                                        <% @events.each do |event| %>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <% if event.avatar.attached? %>
+                                                        <%= image_tag event.avatar, width: "100%" %>
+                                                    <% else %>
+                                                        <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
+                                                    <% end %>
+                                                    <div class="card-body">
+                                                    <h5 class="card-title"><%= event.title %></h5>
+                                                        <p class="card-text"><%= event.body %></p>
+                                                        <h5>Start: <%= event.start_date %></h5>
+                                                        <h5>Ends: <%= event.start_date %></h5>
+                                                        <h5>Price: <%= event.price %></h5>
+                                                        <h4>Creator: <%= event.user_id %></h4>
+                                                        <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
+                                                        <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
+                                                        <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
                                                     </div>
-                                                <% end %>
+
+                                                </div>
                                             </div>
-                                        </div>
+                                        <% end %>
                                     </div>
                                 </div>
                             </div>
@@ -178,44 +166,33 @@
                             <div class="col-6">
                                 <h3 class="mb-3">Events Subscribed </h3>
                             </div>
-                            <div class="col-6 text-right">
-                                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                                    <i class="fa fa-arrow-left"></i>
-                                </a>
-                                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                                    <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </div>
                             <div class="col-12">
                                 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <div class="row">
-                                                <% @subscribed_events.each do |event| %>
-                                                    <div class="col-md-4 mb-3">
-                                                        <div class="card">
-                                                            <% if event.avatar.attached? %>
-                                                                <%= image_tag event.avatar, width: "100%" %>
-                                                            <% else %>
-                                                                <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
-                                                            <% end %>
-                                                            <div class="card-body">
-                                                            <h5 class="card-title"><%= event.title %></h5>
-                                                                <p class="card-text"><%= event.body %></p>
-                                                                <h5>Start: <%= event.start_date %></h5>
-                                                                <h5>Ends: <%= event.start_date %></h5>
-                                                                <h5>Price: <%= event.price %></h5>
-                                                                <h4>Creator: <%= event.user_id %></h4>
-                                                                <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
-                                                                <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
-                                                                <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
-                                                            </div>
-
-                                                        </div>
+                                    <div class="row">
+                                        <% @subscribed_events.each do |event| %>
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card">
+                                                    <% if event.avatar.attached? %>
+                                                        <%= image_tag event.avatar, width: "100%" %>
+                                                    <% else %>
+                                                        <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
+                                                    <% end %>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title"><%= event.title %></h5>
+                                                        <p class="card-text"><%= event.body %></p>
+                                                        <h5>Start: <%= event.start_date %></h5>
+                                                        <h5>Ends: <%= event.start_date %></h5>
+                                                        <h5>Price: <%= event.price %></h5>
+                                                        <h4>Creator: <%= event.user_id %></h4>
+                                                        <a href="#" class="btn btn-primary"><%= link_to 'show', event %></a>
+                                                        <a href="#" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></a>
+                                                        <% if @user.admin? %>
+                                                            <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class:"unsubscribe-button w-100" %>
+                                                        <% end %>
                                                     </div>
-                                                <% end %>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <% end %>
                                     </div>
                                 </div>
                             </div>

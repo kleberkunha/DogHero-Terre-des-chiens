@@ -1,5 +1,12 @@
-.carousel-item{
-    max-height: 20em;
+.bg-paralax{
+    background-image: url("fk.jpg");
+    /* Set a specific height */
+    min-height: 405px; 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .card-service{

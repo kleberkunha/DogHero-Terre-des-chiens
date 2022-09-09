@@ -10,6 +10,7 @@
         <% if user_signed_in? %>
             <div class="navbar-nav mr-auto py-0">
                 <%= button_to "Home", root_path, :method => :get, :form_class => "nav-item nav-link" %>
+                <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Events", events_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "About", about_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>
@@ -19,6 +20,7 @@
             </div>
         <% else %>
             <%= button_to "Home", root_path, :method => :get, :form_class => "nav-item nav-link" %>
+            <%= button_to "Contact", root_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Events", events_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "About", about_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>

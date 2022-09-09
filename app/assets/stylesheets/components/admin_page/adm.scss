@@ -42,12 +42,21 @@
 .accordion .card-body {
 	text-align: justify;
 }
+.table-responsive{
+	overflow: scroll;
+}
 
 
+/*----EVENTS ADMIN PAGE ----*/
+.events-adm-page:hover{
+	cursor: pointer;
+	background-color: #23384e8a;
+}
 
-
-
-
+.testing-scrool{
+	overflow: scroll;
+    max-height: 352px;
+}
 
 
 
