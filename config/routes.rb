@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :dogs
-  devise_for :users, controllers: { confirmations: 'confirmations' }
+  devise_for :users
   
-  resources :users do
+  resources :admin_users do
     member do
       get :events
       get :confirm_email

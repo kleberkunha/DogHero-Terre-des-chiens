@@ -62,8 +62,17 @@ Rails.application.configure do
 
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'doghero1.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
 
   
+  config.action_mailer.smtp_settings = {
+    user_name: 'apikey', # This is the string literal 'apikey', NOT the ID of your API key
+    password: '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', # This is the secret sendgrid API key which was issued during API key creation
+    domain: 'heroku.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
 
 end
