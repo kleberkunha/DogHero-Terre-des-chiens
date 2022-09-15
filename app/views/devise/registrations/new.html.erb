@@ -32,7 +32,7 @@
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password", class: "form-control"%>
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "sw-pw"%>
               </div>
               <div class="form-group mb-3">
                 <label class="label" for="password">Confirm Password</label>
@@ -40,6 +40,12 @@
               </div>
               <div class="form-group">
                 <%= f.submit "Sign up", class:"form-control btn btn-primary submit px-3" %>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" onclick="myFunction()" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                  See my password
+                </label>
               </div>
               <div class="form-group d-md-flex">
                 <div class="w-50 text-left">
