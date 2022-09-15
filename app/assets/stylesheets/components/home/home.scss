@@ -1,40 +1,22 @@
 .bg-paralax{
-    background-image: url("fk.jpg");
+    background-image: url("terredechienBg.jpeg");
     /* Set a specific height */
-    min-height: 405px; 
+    min-height: 49rem; 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: top;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-.card-service{
-    background-image: url("blob.svg");
+.logo-header{
+    background-image: url('../../../images/terrechienLogo.svg');
     background-size: cover;
+    width: 350px;
     height: 350px;
     background-repeat: no-repeat;
     background-position: center;
     margin-top: -165px;
-}
-
-.circle-shape-1{
-    background-image: url("charrioDOG.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 89%;
-    margin-top: -48px;
-    position: absolute;
-    height: 305px;
-}
-.circle-shape-2{
-    background-image: url("https://happydog_en_sb.cstatic.io/440x440/f/69110/480x480/c90b13149a/hd-vet-new-product-slider-packshots-sensible-11kg-300g.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 89%;
-    margin-top: 68px;
-    position: absolute;
-    height: 191px;
+    border-radius: 50px;
+    border: 1px solid yellow;
 }

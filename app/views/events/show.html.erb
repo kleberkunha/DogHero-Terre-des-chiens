@@ -7,9 +7,9 @@
           <div class="card-body">
             <div class="e-navlist e-navlist--active-bold">
               <div class="">
-                <div class="card" style="width: 70%;">
+                <div class="card" >
                   <% if @event.avatar.attached? %>
-                    <%= image_tag @event.avatar, width: "100%" %>
+                    <%= image_tag @event.avatar %>
                   <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= @event.title%></h5>
@@ -34,7 +34,7 @@
                     <table class="table table-bordered">
                       <tbody>
                         <% @users.each do |user| %>
-                          <tr onclick="window.location.href='<%=user_path(user.id)%>'">
+                          <tr onclick="window.location.href='<%=admin_user_path(user.id)%>'">
                             <td class="align-middle">
                               <p><%= user.id %></p>
                             </td>

@@ -26,7 +26,7 @@ class DogsController < ApplicationController
     @dog.user_id = current_user.id
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to user_path(current_user), notice: "Dog was successfully created." }
+        format.html { redirect_to admin_user_path(current_user), notice: "Dog was successfully created." }
         format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new, status: :unprocessable_entity }
