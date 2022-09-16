@@ -1,23 +1,24 @@
 .bg-paralax{
-    background-image: url("terredechienBg.jpeg");
+    background-image: url("tt2.jpg");
     /* Set a specific height */
-    min-height: 49rem; 
+    min-height: 30rem; 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: center;
+    background-position-y: 100%;
     background-repeat: no-repeat;
-    background-size: contain;
     display: flex;
     justify-content: center;
-    padding-top: 20px;
 }
-
+.control-dh-logo{
+    padding-bottom: 10rem;
+}
 .logo-header{
-    background-image: url('doghero.png');
+    background-image: url('dogHeroLogo.png');
     background-size: contain;
+    background-position: center;
     width: 350px;
     height: 350px;
     background-repeat: no-repeat;
-    border-radius: 100%;
-    border: 1px solid yellow;
+    position: absolute;
+    margin-top: -9.4%;
 }
