@@ -2,18 +2,17 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-12 col-lg-10">
-				<div class="wrap d-md-flex">
-					<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
-						<div class="text w-100">
-							<h2>Welcome to Sign in</h2>
-							<p>Already have a account?</p>
-							<%= link_to "Log in", new_user_session_path, :class => "btn btn-white btn-outline-white"%>
+				<div class="card-control-register d-md-flex">
+					<div class="p-4 p-lg-5 text-center r-login-bg d-flex align-items-end order-md-last">
+						<div class="text  text-welcomeSignIn">
+							<p class="text-deja-inscrit ">Déja inscrit ?</p>
+							<%= link_to "Se connecter", new_user_session_path, :class => "btn btn-dark btn-outline-white"%>
 						</div>
 				</div>
 				<div class="login-wrap p-4 p-lg-5">
 					<div class="d-flex">
 						<div class="w-100">
-							<h3 class="mb-4">Sign In</h3>
+							<h3 class="mb-4">S'inscrire</h3>
 						</div>
 						<div class="w-100">
 
@@ -23,19 +22,18 @@
 					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
               <div class="form-group mb-3">
-                <label class="label" for="name">Username</label><br/>
+                <label class="label" for="name">Adresse mail</label><br/>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
               </div>
               <div class="form-group mb-3">
-                <label class="label" for="password">Password</label>
-                <%= f.label :password %>
+                <label class="label" for="password">Mot de passe</label>
                 <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em>(<%= @minimum_password_length %> caractères minimum)</em>
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "sw-pw"%>
               </div>
               <div class="form-group mb-3">
-                <label class="label" for="password">Confirm Password</label>
+                <label class="label" for="password">Confirmer votre mot de passe</label>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
               <div class="form-group">
@@ -44,7 +42,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" onclick="myFunction()" value="" id="flexCheckIndeterminate">
                 <label class="form-check-label" for="flexCheckIndeterminate">
-                  See my password
+                  Voir mon mot de passe
                 </label>
               </div>
               <div class="form-group d-md-flex">

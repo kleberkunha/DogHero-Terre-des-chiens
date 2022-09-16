@@ -7,16 +7,17 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
 
 .logo-header{
-    background-image: url('../../../images/terrechienLogo.svg');
-    background-size: cover;
+    background-image: url('doghero.png');
+    background-size: contain;
     width: 350px;
     height: 350px;
     background-repeat: no-repeat;
-    background-position: center;
-    margin-top: -165px;
-    border-radius: 50px;
+    border-radius: 100%;
     border: 1px solid yellow;
 }
