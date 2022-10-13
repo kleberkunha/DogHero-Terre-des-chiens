@@ -1,91 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-center"> 
+            <div class="wrapper">
+                <div class="profile">
+                    <% if @user.avatar.attached? %>
+                        <%= image_tag @user.avatar, class:"card-img-top" %>
+                    <% end %>
+                    <h3 class="name pt-2"><%= @user.first_name%>&nbsp<%= @user.last_name%></h3>
+                    <p class="title"><%= @user.email%></p>
+                    <div class="">
+                        <p class="title p-0">Phone : <%= @user.phone_number%></p>
+                        <p class="title p-0">Address : <%= @user.address%></p>
+                    </div>
+                    <button type="button" class="btn"><%= link_to "edit my information", edit_admin_user_url(@user.id)%></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center align-items-center">
+            <ul class="nav profile-user-painel">
+                <li class=""><a href="#timeline" data-toggle="tab">My dogs</a></li>
+                <li class=""><a href="#photos" data-toggle="tab">Photos</a></li>
+                <li class=""><a href="#my-events" data-toggle="tab">My Events</a></li>
+                <li class=""><a href="#events-sub" data-toggle="tab">Events Sub</a></li>
+                <% if @user.admin? %>
+                    <li><%=link_to 'Admin Page', admin_users_path %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container-fluid bootstrap snippets bootdey">
 <div class="row">
     <!-- BEGIN USER PROFILE -->
     <div class="col-md-12">
       <div class="grid profile">
-        <div class="control-div-card">
-            <div class="card mt-2 mb-3 user-pic">
-                <% if @user.avatar.attached? %>
-                    <%= image_tag @user.avatar, class:"card-img-top" %>
-                <% end %>
-            </div>
-        </div>
+
         <div class="grid-body">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-                <li class=""><a href="#timeline" data-toggle="tab">My dogs</a></li>
-                <li class=""><a href="#photos" data-toggle="tab">Photos</a></li>
-                <li class=""><a href="#my-events" data-toggle="tab">My Events</a></li>
-                <li class=""><a href="#events-sub" data-toggle="tab">Events Sub</a></li>
-                <li class="">            
-                    <% if @user.admin? %>
-                        <%=link_to 'Admin Page', admin_users_path %>
-                    <% end %>
-                </li>
-            </ul>
           <div class="tab-content">
-            <!-- BEGIN PROFILE -->
-            <div class="tab-pane active pt-3" id="profile">
-              <div class="row">
-                <div class="col-md-6">
-                 <p><strong>Name:</strong><%= @user.first_name%>&nbsp<%= @user.last_name%></p>
-                  <p><strong>Email: </strong><%= @user.email%></p>
-                  <p><strong>Website:</strong> <a href="jwilliams.com">bootdey.com</a></p>
-                  <p><strong>About: </strong><%= @user.role%></p>
-                </div>
-                <div class="col-md-6">
-                  <p><strong>Address: </strong><%= @user.address%></p>
-                  <p><strong>Phone: </strong><%= @user.phone_number%></p>
-                </div>
-                <p class="lead"><%= link_to "edit my information", edit_admin_user_url(@user.id)%></p>
-                
-              </div>
-            </div>
-            <!-- END PROFILE -->
             <!-- BEGIN TIMELINE -->
             <div class="tab-pane mt-2" id="timeline">
                 <div class="d-flex">
                     <p class="lead mx-2">My Dogs</p>
                     <p class="lead"><%= link_to "Add new dog", new_dog_path%></p>
                 </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="container bootstrap snippets bootdey">
+                <div class="row">
                         <% @dogs.each do |dog| %>
-                            <div class="profile card">
-                                <div class="profile-body">
-                                    <div class="profile-bio">
-                                        <div class="row">
-                                            <div class="col-md-5 text-center">
-                                                <% if dog.avatar.attached? %>
-                                                    <%= image_tag dog.avatar, width: "70%", class:"img-thumbnail md-margin-bottom-10" %>
-                                                <% end %>
-                                            </div>
-                                            <div class="col-md-7 text-center dog-infos">
-                                                <h2>Name : <%= dog.name%></h2>
-                                                <span><strong>Gender:</strong> <%= format_gender(dog) %></span>
-                                                <span><strong>Cantre:</strong><%= dog.castrated %></span>
-                                                <span><strong>Friendly:</strong><%= dog.friendly %></span>
-                                                <span><strong>Alergic:</strong><%= dog.alergic %></span>
-                                                <span><strong>Trained:</strong><%= dog.trained %></span>
-                                                <% if dog.user_id === current_user.id%>
-                                                    <div class="col-sm-12 btn-edit-dog">
-                                                        <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
-                                                    </div>
-                                                <% end %>
-                                                <hr>
-                                                <p><%= dog.description %></p>
-                                            </div>
-                                        </div>    
-                                    </div>
-                                </div>
+                            <div class="col-md-3 p-0 ml-3 dog-card-profile-user">
+                                    <% if dog.avatar.attached? %>
+                                        <%= image_tag dog.avatar, width: "100%", class:"img-thumbnail center dog-img-profile md-margin-bottom-10" %>
+                                    <% end %>
+
+
+                                <h3 class="name pt-2 text-center"><%= dog.name%></h3>
+                                        <div class="text-center dog-infos">
+                                            <span class="text-center"><strong>Gender: </strong> <%= format_gender(dog) %></span>
+                                            <span class="text-center"><strong>Cantre: </strong><%= dog.castrated %></span>
+                                            <span class="text-center"><strong>Friendly: </strong><%= dog.friendly %></span>
+                                            <span class="text-center"><strong>Alergic: </strong><%= dog.alergic %></span>
+                                            <span class="text-center"><strong>Trained: </strong><%= dog.trained %></span>
+                                            <% if dog.user_id === current_user.id%>
+                                                <div class="col-sm-12 btn-edit-dog">
+                                                    <%=link_to 'Edit profile', edit_dog_path(dog.id) %>
+                                                </div>
+                                            <% end %>
+                                            <hr>
+                                            <p><%= dog.description %></p>
+                                        </div>
                             </div>
                         <% end %>
-                    </div>      
+                    </div>
                 </div>
-              </div>
-            </div>
             <!-- END TIMELINE -->
             <!-- BEGIN PHOTOS -->
             <div class="tab-pane" id="photos">

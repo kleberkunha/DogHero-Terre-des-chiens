@@ -1,4 +1,4 @@
-<%= form_with(model: dog, local: true) do |form| %>
+<%= form_with(model: dog, local: true, class: "pt-5") do |form| %>
   <% if dog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
