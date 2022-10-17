@@ -2,7 +2,7 @@ class AdminUsersController < ApplicationController
 
 
   def index
-    @user = User.all
+    @users = User.all
     @events = Event.all
   end
 
@@ -10,7 +10,6 @@ class AdminUsersController < ApplicationController
   end
 
   def admin
-
     if params[:search].blank?
       @users = User.all
     else
@@ -21,13 +20,14 @@ class AdminUsersController < ApplicationController
       puts ("----ADMIN------------#####  --------* ******") 
 
     end
+
+    @events = Event.all
   end
 
   def show
-
     @user = User.find(params[:id])
 
-    unless current_user.id == @user.id
+    unless current_user.id == @user.id || current_user.role == "admin"
       render 'errors/not_found'
       return
     end

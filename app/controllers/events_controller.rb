@@ -48,9 +48,6 @@ class EventsController < ApplicationController
       render 'errors/not_found'
       return
     end
-
-
-
   end
 
   def get_event_of_user
@@ -58,12 +55,6 @@ class EventsController < ApplicationController
     @single_event = Event.where(user_id: current_user.id)
 
   end
-
-
-
-
-
-
 
   # POST /events or /events.json
   def create
@@ -98,9 +89,17 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
 
-    respond_to do |format|
-      format.html { redirect_to admin_user_path(current_user), notice: "Event was successfully destroyed." }
-      format.json { head :no_content }
+    
+    if current_user.role === 'admin'
+      respond_to do |format|
+        format.html { redirect_to admin_users_path, notice: "Event was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_user_path(current_user), notice: "Event was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
   end
 

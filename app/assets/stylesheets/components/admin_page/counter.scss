@@ -1,0 +1,50 @@
+:root{ --main-color: #28a745; }
+.counter{
+    color: var(--main-color);
+    background: linear-gradient(#fff 9%,#fff 19%,var(--main-color) 19%,var(--main-color) 83%,#fff 83%,#fff 0%);
+    font-family: 'Poppins', sans-serif;
+    width: 210px;
+    height: 210px;
+    text-align: center;
+    padding: 40px 0 35px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.counter:before{
+    content:"";
+    background: #fff;
+    border: 10px solid black;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    z-index: -1;
+}
+.counter .counter-value{
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 0 0 10px;
+    display: block;
+}
+.counter h3{
+    color: #fff;
+    background: var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 10px;
+    margin: 0 0 8px;
+}
+.counter .counter-icon{ font-size: 35px; }
+.counter.blue{ --main-color: #0CCBDA; }
+.counter.yellow{ --main-color: #F39C12; }
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; }
+}   
