@@ -88,7 +88,6 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
-
     
     if current_user.role === 'admin'
       respond_to do |format|

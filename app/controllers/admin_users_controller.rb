@@ -72,6 +72,22 @@ class AdminUsersController < ApplicationController
 
   end
 
+  def event_destroy
+    @event.destroy
+    
+    if current_user.role === 'admin'
+      respond_to do |format|
+        format.html { redirect_to admin_users_path, notice: "Event was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_user_path(current_user), notice: "Event was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    end
+  end
+
 
   def update
     @user = User.find(params[:id])

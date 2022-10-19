@@ -32,56 +32,58 @@
 </div>
 
 <div class="container-fluid pt-5">
-  <div class="row">
-    <div class="col-sm-6 d-flex card-control">
-        <% @users.each do |user| %>
-            <div class="card col-sm-2">
-                <% if user.avatar.attached? %>
-                    <%= image_tag user.avatar, class:"card-img-top" %>
-                <% else %>
-                    <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
-                <% end %>
-                <div class="card-body pl-0 px-0">
-                    <h5 class="card-title text-center"><%= user.first_name %>&nbsp<%= user.last_name %></h5>
-                    <h6 class="text-center"><%= user.created_at %></h6>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <% if current_user.role === "admin"%>
-                        <%= link_to 'Check Profile', admin_user_path(user.id), class:"card-link bg-success text-white p-2 rounded text-center" %>
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
-    </div>
-
-
-
-    <div class="col-sm d-flex card-control pt-2">
-        <div class="container">
-            <div class="row">
-                <% @events.each do |event| %>
-                    <div class="card col-sm-2 p-0">
-                        <% if event.avatar.attached? %>
-                            <div class="image-control">
-                                <%= image_tag event.avatar, class:"image-size-control" %>
-                            </div>
-                        <% else %>
-                            <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
-                        <% end %>
-                        <div class="card-body p-0 content-body">
-                            <h5 class="card-title text-center pt-2"><%= event.title %></h5>
-                            <h6 class="text-center">Start : <%= event.start_date.to_date.strftime("%d/%m/%Y") %></h6>
-                            <h6 class="text-center">End :<%= event.end_date.to_date.strftime("%d/%m/%Y") %></h6>
-                            <small class="p-2"><%= event.description %></small>
-                            <div class="border d-flex justify-content-center">
-                                <%= link_to 'SHOW', event, class:"show-adm-button"%>
-                                <%= button_to "DELETE", {:controller => :events, :action => 'destroy', :id => event.id}, :method => :delete, class:"delete-adm-button"  %>
+    <div class="row">
+        <div class="col-sm d-flex card-control pt-2">
+            <div class="container">
+                <div class="row">
+                    <% @users.each do |user| %>
+                        <div class="card col-sm-2 p-0">
+                            <% if user.avatar.attached? %>
+                                <div class="image-control">
+                                    <%= image_tag user.avatar, class:"image-size-control" %>
+                                </div>
+                            <% else %>
+                                <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
+                            <% end %>
+                            <div class="card-body p-0 content-body">
+                                <h5 class="card-title text-center pt-2"><%= user.first_name %></h5>
+                                <ul class="list-group list-group-flush">
+                                    <% if current_user.role === "admin"%>
+                                        <%= link_to 'Check Profile', admin_user_path(user.id), class:"card-link bg-success text-white p-2 rounded text-center" %>
+                                    <% end %>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm d-flex card-control pt-2">
+            <div class="container">
+                <div class="row">
+                    <% @events.each do |event| %>
+                        <div class="card col-sm-2 p-0">
+                            <% if event.avatar.attached? %>
+                                <div class="image-control">
+                                    <%= image_tag event.avatar, class:"image-size-control" %>
+                                </div>
+                            <% else %>
+                                <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
+                            <% end %>
+                            <div class="card-body p-0 content-body">
+                                <h5 class="card-title text-center pt-2"><%= event.title %></h5>
+                                <h6 class="text-center">Start : <%= event.start_date.to_date.strftime("%d/%m/%Y") %></h6>
+                                <h6 class="text-center">End :<%= event.end_date.to_date.strftime("%d/%m/%Y") %></h6>
+                                <small class="p-2"><%= event.description %></small>
+                                <div class="border d-flex justify-content-center">
+                                    <%= link_to 'SHOW', event, class:"show-adm-button"%>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
