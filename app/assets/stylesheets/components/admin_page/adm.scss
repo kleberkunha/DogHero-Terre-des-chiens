@@ -67,6 +67,21 @@
 }
 /*---- USER AVATAR -----*/
 
+.content-adm-users{
+	display: flex;
+	justify-content: center;
+    flex-direction: column;
+}
 
+.adm-page-size-control{
+	margin-top: 7%;
+}
 
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:block;
+    width : 130px;
+}
 
