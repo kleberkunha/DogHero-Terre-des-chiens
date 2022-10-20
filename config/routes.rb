@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'users#admin', as: 'admin'
 
-  get 'about', to: 'about#about'
+  resources :about
   get 'service', to: 'service#service'
   get 'products', to: 'products#products'
   get 'contact', to: 'contact#contact'

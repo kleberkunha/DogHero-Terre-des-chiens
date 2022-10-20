@@ -3,11 +3,11 @@ class AboutController < ApplicationController
   
 
     def index
-
+        @users = User.where(role: 'admin');
     end
 
     def show
-
+        @users = User.where(role: 'admin');
     end
   
 
