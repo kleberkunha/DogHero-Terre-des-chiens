@@ -8,9 +8,6 @@
     background-size: contain;
     display: flex;
 }
-.control-dh-logo{
-    padding-bottom: 10rem;
-}
 .logo-header{
     background-image: url('dogHeroLogo.png');
     background-size: contain;
@@ -18,8 +15,6 @@
     width: 350px;
     height: 350px;
     background-repeat: no-repeat;
-    position: absolute;
-    margin-top: -9.4%;
 }
 
 
@@ -37,6 +32,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    display: flex;
+    justify-content: flex-end;
 
 }
 
