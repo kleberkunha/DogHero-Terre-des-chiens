@@ -1,14 +1,12 @@
 .bg-paralax{
-    background-image: url("bgwide.jpg");
+    background-image: url("https://terredeschiens.fr/wp-content/uploads/2022/06/tdc8.png");
     /* Set a specific height */
-    min-height: 30rem; 
+    min-height: 26rem; 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position-y: 625%;
     background-repeat: no-repeat;
+    background-size: contain;
     display: flex;
-    justify-content: center;
-    background-size: cover;
 }
 .control-dh-logo{
     padding-bottom: 10rem;
@@ -25,7 +23,27 @@
 }
 
 
+.index-images-control{
+    width: 100%;
+}
 
+#myVideo{
+    width: 100%;
+}
 
+.bg-dog{
+    background-image: url('https://cdn.dribbble.com/users/1107982/screenshots/15140551/media/4e3136579a7111aab3d4d715452ef560.png');
+    background-position: 25% 75%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 
+}
 
+/* 
+min-height: 30rem;
+background-position-y: 625%;
+background-repeat: no-repeat;
+display: flex;
+justify-content: center;
+background-size: cover; */
