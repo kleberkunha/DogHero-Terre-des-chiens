@@ -10,3 +10,11 @@
         margin-top: 10rem;
     }
 }
+@media only screen and (min-width: 320px) and (max-width: 1545px) {
+    .services-control{
+        margin-top: 40px !important;
+    }
+    .bg-paralax{
+        display: none;
+    }
+}
