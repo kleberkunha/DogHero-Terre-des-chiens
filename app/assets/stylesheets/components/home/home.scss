@@ -1,11 +1,12 @@
 .bg-paralax{
-    background-image: url("https://terredeschiens.fr/wp-content/uploads/2022/06/tdc8.png");
+    background-image: url("sam2.jpeg");
     /* Set a specific height */
     min-height: 26rem; 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-position: bottom;
     display: flex;
 }
 .logo-header{
