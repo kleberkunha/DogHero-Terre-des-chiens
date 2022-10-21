@@ -195,3 +195,31 @@
     color: #000; 
   }
   
+  .bg-login{
+    background-image: url("https://longanimal.com/blog/wp-content/uploads/2017/03/Long_iStock-533045312-1800x1200.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 63%;
+    width: 41%;
+  }
+
+
+.text{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-btn-subscribe{
+  background-color: white !important;
+  font-weight: 600 !important;
+}
+
+.login-btn-subscribe:hover{
+  background-color: rgba(105, 148, 64, 0.438)!important;
+}
+
+.bienvenue-login{
+  background-color: rgba(0, 0, 0, 0.253);
+}

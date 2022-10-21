@@ -1,15 +1,8 @@
 <section class="ftco-section">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-12 col-lg-10">
-				<div class="card-control-register d-md-flex">
-					<div class="p-4 p-lg-5 text-center r-login-bg d-flex align-items-end order-md-last">
-						<div class="text  text-welcomeSignIn">
-							<p class="text-deja-inscrit ">Déja inscrit ?</p>
-							<%= link_to "Se connecter", new_user_session_path, :class => "btn btn-dark btn-outline-white"%>
-						</div>
-				</div>
-				<div class="login-wrap p-4 p-lg-5">
+			<div class="col-md-12 subscribe-form col-lg-10">
+				<div class="register-wrap p-4 p-lg-5">
 					<div class="d-flex">
 						<div class="w-100">
 							<h3 class="mb-4">S'inscrire</h3>
@@ -22,34 +15,25 @@
 					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
               <div class="form-group mb-3">
-                <label class="label" for="name">Adresse mail</label><br/>
+                <label class="label text-white" for="name">Adresse mail</label><br/>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
               </div>
               <div class="form-group mb-3">
-                <label class="label" for="password">Mot de passe</label>
+                <label class="label text-white" for="password">Mot de passe</label>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %> caractères minimum)</em>
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "sw-pw"%>
               </div>
               <div class="form-group mb-3">
-                <label class="label" for="password">Confirmer votre mot de passe</label>
+                <label class="label text-white" for="password">Confirmer votre mot de passe</label>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
               <div class="form-group">
                 <%= f.submit "Sign up", class:"form-control btn btn-primary submit px-3" %>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" onclick="myFunction()" value="" id="flexCheckIndeterminate">
-                <label class="form-check-label" for="flexCheckIndeterminate">
-                  Voir mon mot de passe
-                </label>
-              </div>
-              <div class="form-group d-md-flex">
-                <div class="w-50 text-left">
-
-                </div>
-                <div class="w-50 text-md-right">
+              <div class="form-group d-md-flex justify-content-center text-center">
+                <div class=" text-connect-control">
                   <%= render "devise/shared/links" %>
                 </div>
               </div>
