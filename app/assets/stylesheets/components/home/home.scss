@@ -5,17 +5,19 @@
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position-y: -60%;
+    background-size: cover;
+    background-position-y: 250%;
     display: flex;
+    justify-content: center;
 }
 .logo-header{
-    background-image: url('dogHeroLogo.png');
+    background-image: url('tdc.png');
     background-size: contain;
     background-position: center;
     width: 350px;
     height: 350px;
     background-repeat: no-repeat;
+    margin-top: 60px;
 }
 .index-images-control{
     width: 100%;
