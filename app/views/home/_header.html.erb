@@ -1,7 +1,7 @@
 <div class="container-fluid p-0 fixed-top">
     <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-lg-5">
     <a href="" class="navbar-brand d-block">
-        <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-success">Dog</span>Hero</h1>
+        <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-success">TD</span>C</h1>
     </a>
     <button type="button" class="navbar-toggler text-center" data-toggle="collapse" data-target="#navbarCollapse">
         Menu<br/>
@@ -10,27 +10,34 @@
         <% if user_signed_in? %>
             <div class="navbar-nav mr-auto py-0">
                 <%= button_to "Home", root_path, :method => :get, :form_class => "nav-item nav-link" %>
-                <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
-                <%= button_to "Events", events_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "About", about_index_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Products", products_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Profile", admin_user_path(current_user), :method => :get, :form_class => "nav-item nav-link" %>
+                <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
                 <%= button_to "Sign Out", destroy_user_session_path, :method => :get, :form_class => "nav-item nav-link" %>
             </div>
         <% else %>
             <%= button_to "Home", root_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
-            <%= button_to "Events", events_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "About", about_index_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Products", products_path, :method => :get, :form_class => "nav-item nav-link" %>
+            <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Login",new_user_session_path,:method => :get, :form_class => "nav-item nav-link" %>
             <%= button_to "Register", new_user_registration_path, :method => :get, :form_class => "nav-item nav-link" %>
         <% end %>
     </div>
     </nav>
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% end %>
 </div>
+
 
 
 

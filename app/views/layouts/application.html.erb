@@ -13,13 +13,7 @@
   <body>
   <div class="pt-5"></div>
     <%= render 'home/header.html.erb'%>
-    <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    <% end %>
+
     <%= yield %>
     <!-- Footer Start -->
     <div class="container-fluid bg-dog">

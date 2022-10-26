@@ -50,4 +50,62 @@
         </div>
     </div>
 </div>
+
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <% @events.each do |event| %>
+            <div class="card col-sm-2 p-0">
+                <% if event.avatar.attached? %>
+                    <div class="image-control">
+                        <%= image_tag event.avatar, class:"image-size-control" %>
+                    </div>
+                <% else %>
+                    <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
+                <% end %>
+                <div class="card-body p-0 content-body">
+                    <h5 class="card-title text-center pt-2"><%= event.title %></h5>
+                    <h6 class="text-center">Start : <%= event.start_date.to_date.strftime("%d/%m/%Y") %></h6>
+                    <h6 class="text-center">End :<%= event.end_date.to_date.strftime("%d/%m/%Y") %></h6>
+                    <small class="p-2 ellipsis text-center"><%= event.description %></small>
+                    <div class="border d-flex justify-content-center w-100">
+                        <%= link_to 'SHOW', event, class:"show-adm-button w-100 text-center"%>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="container slider mt-5">
+	<div class="slide-track">
+		<div class="slide">
+			<img src="https://terredeschiens.fr/wp-content/uploads/2022/09/Altexia_logo_RVB.png" height="100" width="200" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/fe/Logo_Strasbourg_02.svg/250px-Logo_Strasbourg_02.svg.png" height="100" width="100" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://upload.wikimedia.org/wikipedia/fr/0/00/Logo_de_la_SPA_%28France%29.png" height="100" width="90" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://www.dogspot.biz/wp-content/uploads/2020/03/logo.png" height="100" width="100" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://static1.squarespace.com/static/5e55e60eec6f7f2f669d72a5/t/5e55e9d0e5cda476206e8b36/1663609511755/" height="100" width="100" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://cdn.shopify.com/s/files/1/0648/5750/6035/files/Super-Rad-Dog-Logo.png?v=1656008631" height="100" width="200" alt="" />
+		</div>
+		<div class="slide">
+			<img src="http://cdn.shopify.com/s/files/1/1823/0115/files/1122687_SiliDogLogo-BlueBlack_090921.png?v=1634675934" height="100" width="110" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://www.pngkey.com/png/full/354-3545838_com-logo-working-dog-logo.png" height="100" width="150" alt="" />
+		</div>
+		<div class="slide">
+			<img src="https://www.creativefabrica.com/wp-content/uploads/2021/04/10/Pet-shop-animals-logo-template-Graphics-10636952-1-580x386.png" height="100" width="180" alt="" />
+		</div>
+	</div>
+</div>
+
 <!-- Services End -->
