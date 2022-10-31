@@ -7,7 +7,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'cancancan'
 gem 'sendgrid-ruby'
 gem "sprockets-rails" #gem test
-
+gem 'dotenv'
 
 gem 'ransack'
 
@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv'
+  
 end
 
 group :development do
