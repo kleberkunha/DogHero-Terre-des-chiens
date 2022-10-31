@@ -1,14 +1,10 @@
-.avatar_user_show_events{
-    width: 35px;
-    height: 35px;
-    border-radius: 3px;
-}
-
-
-.show_card_event{
+.show-bg-event {
     width: 100%;
+    border: 10px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 1px 10px 2px black
 }
 
-.card img{
-    width: "100%"
+.list-group-item{
+    border: none !important;
 }

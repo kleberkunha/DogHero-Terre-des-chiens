@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDogs < ActiveRecord::Migration[6.0]
   def change
     create_table :dogs do |t|
@@ -10,8 +12,6 @@ class CreateDogs < ActiveRecord::Migration[6.0]
       t.string :alergic
       t.string :trained
       t.integer :user_id
-
-      
 
       t.timestamps
     end

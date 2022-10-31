@@ -1,14 +1,14 @@
-class EventsController < ApplicationController
-  load_and_authorize_resource :only => [:new, :edit, :destroy] 
+# frozen_string_literal: true
 
-  before_action :set_event, only: [ :show, :edit, :update, :destroy ]
+class EventsController < ApplicationController
+  load_and_authorize_resource only: %i[new edit destroy]
+
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
-  
   # GET /events or /events.json
   def index
     @events = Event.all.order(created_at: :desc)
-
   end
 
   def find_event
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
     subscribers.each do |subscriber|
       user_id = subscriber.user_id
       user = User.find(user_id)
-      @users<<user
+      @users << user
     end
     @users
     @subscribers = @event.subscribers
@@ -39,21 +39,19 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
 
-    if @event === nil
+    if @event.nil?
       render 'errors/event_not_found'
       return
     end
 
-    unless current_user.id ===  @event.user_id
+    unless current_user.id === @event.user_id
       render 'errors/not_found'
-      return
+      nil
     end
   end
 
   def get_event_of_user
-
     @single_event = Event.where(user_id: current_user.id)
-
   end
 
   # POST /events or /events.json
@@ -63,7 +61,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to admin_user_path(current_user), notice: "Event was successfully created." }
+        format.html { redirect_to admin_user_path(current_user), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -76,7 +74,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
+        format.html { redirect_to event_url(@event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -88,28 +86,30 @@ class EventsController < ApplicationController
   # DELETE /events/1 or /events/1.json
   def destroy
     @event.destroy
-    
+
     if current_user.role === 'admin'
       respond_to do |format|
-        format.html { redirect_to admin_users_path, notice: "Event was successfully destroyed." }
+        format.html { redirect_to admin_users_path, notice: 'Event was successfully destroyed.' }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-        format.html { redirect_to admin_user_path(current_user), notice: "Event was successfully destroyed." }
+        format.html { redirect_to admin_user_path(current_user), notice: 'Event was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def event_params
-      params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :description, :subscriber, :first_name, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:title, :body, :start_date, :end_date, :price, :location, :description,
+                                  :subscriber, :first_name, :avatar)
+  end
 end

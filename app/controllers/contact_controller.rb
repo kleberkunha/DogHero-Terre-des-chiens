@@ -1,7 +1,7 @@
-class ContactController < ApplicationController
-    skip_before_action :authenticate_user!
+# frozen_string_literal: true
 
-    def index
-    end
+class ContactController < ApplicationController
+  skip_before_action :authenticate_user!
+
+  def index; end
 end
-  

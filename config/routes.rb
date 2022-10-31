@@ -1,18 +1,19 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :dogs
   devise_for :users
-  
+
   resources :admin_users do
     member do
       get :events
       get :confirm_email
     end
   end
-  
+
   resources :events
 
-  resources :subscribers, only: [:create, :destroy]
-
+  resources :subscribers, only: %i[create destroy]
 
   get 'users/:id/events' => 'users#events', :as => :user_events
 
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   get 'service', to: 'service#service'
   get 'products', to: 'products#products'
   get 'contact', to: 'contact#contact'
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root :to => 'home#index'
+  root to: 'home#index'
 end

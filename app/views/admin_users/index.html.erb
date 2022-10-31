@@ -58,9 +58,6 @@
                             <div class="border d-flex justify-content-center">
                                 <%= link_to 'SHOW', event, class:"show-adm-button"%>
                                 <%= button_to "DELETE", {:controller => :events, :action => 'destroy', :id => event.id }, data: {:confirm => 'Are you sure?'}, :method => :delete, class:"logins-link navbar-link-right" %>
-
-
-
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AddConfirmableToDevise < ActiveRecord::Migration[6.0]
-  # Note: You can't use change, as User.update_all will fail in the down migration
+  # NOTE: You can't use change, as User.update_all will fail in the down migration
   def up
     add_column :users, :confirmation_token, :string
     add_column :users, :confirmed_at, :datetime

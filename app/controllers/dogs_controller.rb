@@ -1,6 +1,7 @@
-class DogsController < ApplicationController
-  load_and_authorize_resource :only => [:new, :edit, :destroy] 
+# frozen_string_literal: true
 
+class DogsController < ApplicationController
+  load_and_authorize_resource only: %i[new edit destroy]
 
   # GET /dogs or /dogs.json
   def index
@@ -8,8 +9,7 @@ class DogsController < ApplicationController
   end
 
   # GET /dogs/1 or /dogs/1.json
-  def show
-  end
+  def show; end
 
   # GET /dogs/new
   def new
@@ -17,8 +17,7 @@ class DogsController < ApplicationController
   end
 
   # GET /dogs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /dogs or /dogs.json
   def create
@@ -26,7 +25,7 @@ class DogsController < ApplicationController
     @dog.user_id = current_user.id
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to admin_user_path(current_user), notice: "Dog was successfully created." }
+        format.html { redirect_to admin_user_path(current_user), notice: 'Dog was successfully created.' }
         format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,11 +37,12 @@ class DogsController < ApplicationController
   # PATCH/PUT /dogs/1 or /dogs/1.json
   def update
     @dog = Dog.find(params[:id])
-    if @dog.update(params.require(:dog).permit(:name, :age, :description, :avatar, :gender, :friendly, :castrated, :trained, :alergic))
-      flash[:success] = "Dog successfully updated!"
-      redirect_to user_url(current_user)
+    if @dog.update(params.require(:dog).permit(:name, :age, :description, :avatar, :gender, :friendly, :castrated,
+                                               :trained, :alergic))
+      flash[:success] = 'Chien mis à jour avec succès!'
+      redirect_to admin_users_path
     else
-      flash.now[:error] = "To-do item update failed"
+      flash.now[:error] = 'Mise à jour a échoué'
       render :edit
     end
   end
@@ -52,19 +52,20 @@ class DogsController < ApplicationController
     @dog.destroy
 
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: "Dog was successfully destroyed." }
+      format.html { redirect_to dogs_url, notice: 'Le chien a été détruit avec succès.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dog
-      @dog = Dog.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def dog_params
-      params.require(:dog).permit(:name, :age,:gender, :friendly, :castrated, :trained, :alergic, :description, :avatar)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dog
+    @dog = Dog.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def dog_params
+    params.require(:dog).permit(:name, :age, :gender, :friendly, :castrated, :trained, :alergic, :description, :avatar)
+  end
 end

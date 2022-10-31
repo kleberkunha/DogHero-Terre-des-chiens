@@ -1,6 +1,7 @@
-class Subscriber < ApplicationRecord
+# frozen_string_literal: true
 
-  validates :user_id, uniqueness: {scope: :event_id}
+class Subscriber < ApplicationRecord
+  validates :user_id, uniqueness: { scope: :event_id }
 
   belongs_to :user
   belongs_to :event

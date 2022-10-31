@@ -1,62 +1,76 @@
-<%= form_with(model: dog, local: true, class: "pt-5") do |form| %>
-  <% if dog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
-
-      <ul>
-        <% dog.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :castrated %>
-    <%= form.text_field :castrated %>
-  </div>
-
-  <div class="field">
-    <%= form.label :friendly %>
-    <%= form.text_field :friendly %>
-  </div>
-
-  <div class="field">
-    <%= form.label :alergic %>
-    <%= form.text_field :alergic %>
-  </div>
-
-  <div class="field">
-    <%= form.label :trained %>
-    <%= form.text_field :trained %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= form_with(model: dog, local: true, class: "pt-5" ) do |form| %>
+	<div class="container-fluid  rounded bg-white mt-5 mb-5">
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-5 border-right">
+				<div class="p-3 py-5">
+					<div class="d-flex justify-content-between align-items-center mb-3">
+						<h4 class="text-right">Paramètres de profil</h4> </div>
+					<div class="row mt-2">
+						<div class="col-md-6">
+							<label class="labels">Prénom</label>
+							<div class="field">
+								<%= form.text_field :name, class: 'form-control'%>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label class="labels">Âge</label>
+							<div class="field">
+								<%= form.number_field :age, class: "form-control" %>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-md-6">
+							<label class="labels">Le genre</label>
+							<div class="field">
+								<%= form.text_field :gender, class: "form-control", placeholder: "0 - Female | 1 - Male" %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<label class="labels">Castré</label>
+							<div class="field">
+								<%= form.text_field :castrated, class: "form-control" %>
+							</div>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label class="labels">Amicale</label>
+							<div class="field">
+								<%= form.text_field :friendly, class: "form-control" %>
+							</div>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label class="labels">Allergique</label>
+							<div class="field">
+								<%= form.text_field :alergic, class: "form-control" %>
+							</div>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label class="labels">Dressé</label>
+							<div class="field">
+								<%= form.text_field :trained, class: "form-control" %>
+							</div>
+						</div>
+						<div class="col-md-6 mt-3">
+							<label class="labels">Description</label>
+							<div class="field">
+								<%= form.text_field :description, class: "form-control" %>
+							</div>
+						</div>
+					</div>
+					<div class="mt-5 text-center">
+						<%= form.submit class: "btn btn-primary profile-button" %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<% if @dog.avatar.attached? %>
+					<div class="d-flex flex-column align-items-center text-center p-3 py-5">
+						<%= image_tag @dog.avatar, class: "card-img-top" %>
+					</div>
+					<% end %>
+						<div class="field">
+							<%= form.file_field :avatar %>
+						</div>
+			</div>
+		</div>
+		<% end %>

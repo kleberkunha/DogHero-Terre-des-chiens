@@ -10,40 +10,63 @@
       </ul>
     </div>
   <% end %>
+  <div class="container-fluid  rounded bg-white mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Paramètres de profil</h4> </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">Prénom</label>
+                          <div class="field">
+                            <%= form.text_field :first_name, class: 'form-control', placeholder: "first name" %>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Nom de famille</label>
+                        <div class="field">
+                          <%= form.text_area :last_name, class: "form-control" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="field">
+                          <%= form.label :phone_number %>
+                          <%= form.text_area :phone_number, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="field mt-2">
+                          <%= form.label :address %>
+                          <%= form.text_area :address, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="field mt-2">
+                          <%= form.label :email %>
+                          <%= form.text_area :email, class: "form-control" %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5 text-center">
+                    <%= form.submit class: "btn btn-primary profile-button"%>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+          <% if @user.avatar.attached? %>
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5"><%= image_tag @user.avatar, class: "card-img-top" %></div>
+          <% end %>
+          <div class="field">
+            <%= form.file_field :avatar %>
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
 
-
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_area :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_area :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_area :email %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

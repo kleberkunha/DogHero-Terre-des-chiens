@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -32,7 +34,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  #config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -60,19 +62,16 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  
   config.action_mailer.smtp_settings = {
     user_name: ENV['DB_USERNAME'], # This is the string literal 'apikey', NOT the ID of your API key
     password: ENV['DB_PASSWORD'], # This is the secret sendgrid API key which was issued during API key creation
     domain: ENV['DOMAIN'], # This is the domain
     address: ENV['ADDRESS'],
-    port: "587",
+    port: '587',
     authentication: :plain,
     enable_starttls_auto: true
   }
-
 end

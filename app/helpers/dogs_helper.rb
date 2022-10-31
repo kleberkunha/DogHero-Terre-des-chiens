@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 module DogsHelper
-
-    def format_gender(dog)
-        if dog.gender === '1'
-            dog.gender = "Male"
-        else
-            dog.gender = "Female"
-        end
-    end
-
+  def format_gender(dog)
+    dog.gender = if dog.gender === '1'
+                   'Male'
+                 else
+                   'Female'
+                 end
+  end
 end

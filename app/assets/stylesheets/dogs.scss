@@ -8,6 +8,20 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+.edit-btn-dog{
+    text-decoration: none !important;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.edit-btn-dog:hover{
+    background-color: black;
+    color: white;
+    font-weight: 600;
+}
 /*#########################################################*/
 /*#########################################################*/
 /*#########################################################*/
