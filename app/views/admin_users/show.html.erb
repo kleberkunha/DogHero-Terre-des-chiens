@@ -156,8 +156,11 @@
                                                                     <div class="row">
                                                                         <% @events.each do |event| %>
                                                                             <div class="card">
-                                                                                <div class="card_image"><img src="https://picsum.photos/500/300/?image=10">
-                                                                                </div>
+                                                                                <% if event.avatar.attached? %>
+                                                                                <%= image_tag event.avatar, class:"card-img-top" %>
+                                                                                <% else %>
+                                                                                <div class="card_image"><img src="https://picsum.photos/500/300/?image=10"></div>
+                                                                                <% end %>
                                                                                 <div class="card_content">
                                                                                     <p class="card-text">
                                                                                         <h3 class="text-center mt-0"><%= event.title %></h3>

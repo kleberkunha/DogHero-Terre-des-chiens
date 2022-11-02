@@ -56,7 +56,7 @@
         <% @events.each do |event| %>
             <div class="card col-sm-2 p-0">
                 <% if event.avatar.attached? %>
-                    <div class="image-control">
+                    <div class="">
                         <%= image_tag event.avatar, class:"image-size-control" %>
                     </div>
                 <% else %>
@@ -68,7 +68,7 @@
                     <h6 class="text-center">End :<%= event.end_date.to_date.strftime("%d/%m/%Y") %></h6>
                     <small class="p-2 ellipsis text-center"><%= event.description %></small>
                     <div class="border d-flex justify-content-center w-100">
-                        <%= link_to 'SHOW', event, class:"show-adm-button w-100 text-center"%>
+                        <%= link_to 'Montre plus', event, class:"show-adm-button w-100 text-center"%>
                     </div>
                 </div>
             </div>
