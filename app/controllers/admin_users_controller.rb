@@ -6,7 +6,7 @@ class AdminUsersController < ApplicationController
   def not_same_user
     params_id = params[:id].to_i;
     if params_id != current_user.id
-      flash[:error] = "Vous n'êtes pas le bon utilisateur"
+      flash[:error] = "Accès refusé"
       redirect_to root_path
     end
   end
@@ -96,10 +96,10 @@ class AdminUsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :address, :avatar))
-      flash[:success] = 'User successfully updated!'
+      flash[:success] = 'Utilisateur mis à jour avec succès !'
       redirect_to admin_user_url(current_user)
     else
-      flash.now[:error] = 'To-do item update failed'
+      flash.now[:error] = 'Échec de la mise à jour de la tâche à faire'
       render :edit
     end
   end
