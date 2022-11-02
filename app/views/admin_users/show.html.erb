@@ -11,10 +11,10 @@
                                     <%= @user.email%>
                                 </p>
                                 <div class="">
-                                    <p class="title p-0">Phone :
+                                    <p class="title p-0">Téléphone :
                                         <%= @user.phone_number%>
                                     </p>
-                                    <p class="title p-0">Address :
+                                    <p class="title p-0">Addresse :
                                         <%= @user.address%>
                                     </p>
                                 </div>
@@ -26,17 +26,17 @@
         </div>
         <div class="col-sm ">
             <ul class="nav profile-user-painel">
-                <li class=""><a href="#timeline" data-toggle="tab">My dogs</a>
+                <li class=""><a href="#timeline" data-toggle="tab">Mes chiens</a>
                 </li>
                 <li class=""><a href="#photos" data-toggle="tab">Photos</a>
                 </li>
-                <li class=""><a href="#my-events" data-toggle="tab">My Events</a>
+                <li class=""><a href="#my-events" data-toggle="tab">Mes evènements</a>
                 </li>
-                <li class=""><a href="#events-sub" data-toggle="tab">Events Sub</a>
+                <li class=""><a href="#events-sub" data-toggle="tab">Evènements incrits</a>
                 </li>
                 <% if @user.admin? %>
                     <li>
-                        <%= link_to 'Admin Page', admin_users_path, target: "_blank"%>
+                        <%= link_to 'Page admin', admin_users_path, target: "_blank"%>
                     </li>
                     <% end %>
             </ul>
@@ -56,9 +56,9 @@
                                             <!-- BEGIN TIMELINE -->
                                             <div class="tab-pane mt-2" id="timeline">
                                                 <div class="d-flex">
-                                                    <p class="lead mx-2">My Dogs</p>
+                                                    <p class="lead mx-2">Mes chiens</p>
                                                     <p class="lead">
-                                                        <%=link_to "Add new dog", new_dog_path%>
+                                                        <%=link_to "Ajouter un chien", new_dog_path%>
                                                     </p>
                                                 </div>
                                                 <div class="row">
@@ -66,9 +66,7 @@
                                                         <div class="col-md-3 p-0 ml-3 dog-card-profile-user">
                                                             <% if dog.avatar.attached? %>
                                                                 <%= image_tag dog.avatar, width: "100%", class: "img-thumbnail center dog-img-profile md-margin-bottom-10" %>
-                                                                    <% end %>
-
-
+                                                                    <% end %>                                                                        
                                                                         <h3 class="name pt-2 text-center"><%= dog.name%></h3>
                                                                         <div class="text-center dog-infos">
                                                                             <a href="#" class="list-group-item ">Le genre: <%= format_gender(dog)%></a>
@@ -157,9 +155,11 @@
                                                                         <% @events.each do |event| %>
                                                                             <div class="card">
                                                                                 <% if event.avatar.attached? %>
-                                                                                <%= image_tag event.avatar, class:"card-img-top" %>
+                                                                                    <div class="">
+                                                                                        <%= image_tag event.avatar, class:"image-size-control" %>
+                                                                                    </div>
                                                                                 <% else %>
-                                                                                <div class="card_image"><img src="https://picsum.photos/500/300/?image=10"></div>
+                                                                                    <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
                                                                                 <% end %>
                                                                                 <div class="card_content">
                                                                                     <p class="card-text">
@@ -261,48 +261,6 @@
                                                 </section>
                                             </div>
                                             <!--EVENTS SUBSCRIBED-->
-
-                                            <div class="tab-pane" id="settings">
-                                                <p class="lead">My Settings</p>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-horizontal">
-                                                            <div class="form-group">
-                                                                <label class="col-sm-4 control-label">Global Notifications</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="checkbox" />
-                                                                </div>
-                                                                <label class="col-sm-2 control-label">Email Notifications</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="checkbox" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-sm-4 control-label">Phone Notifications</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="checkbox" />
-                                                                </div>
-                                                                <label class="col-sm-2 control-label">Mail Notifications</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="checkbox" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-sm-4 control-label">Subscribe Newsletters</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="checkbox" />
-                                                                </div>
-                                                                <label class="col-sm-2 control-label">RSS Feeds</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="checkbox" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END SETTINGS -->
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,17 @@
-# frozen_string_literal: true
-
 class AdminUsersController < ApplicationController
+  before_action :not_same_user
+
+  #Prevent user to get the information of another user changing the parameters in the url#
+  ########################################################################################
+  def not_same_user
+    params_id = params[:id].to_i;
+    if params_id != current_user.id
+      flash[:error] = "Vous n'êtes pas le bon utilisateur"
+      redirect_to root_path
+    end
+  end
+  ########################################################################################
+
   def index
     @users = User.all
     @events = Event.all

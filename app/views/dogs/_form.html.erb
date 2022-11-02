@@ -1,21 +1,21 @@
 <%= form_with(model: dog, local: true, class: "pt-5" ) do |form| %>
-	<div class="container-fluid  rounded bg-white mt-5 mb-5">
+	<div class="container-fluid p-0 control-footer-dognew">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-5 border-right">
 				<div class="p-3 py-5">
 					<div class="d-flex justify-content-between align-items-center mb-3">
-						<h4 class="text-right">Paramètres de profil</h4> </div>
+						<h4 class="text-right">Paramètres du profil</h4> </div>
 					<div class="row mt-2">
 						<div class="col-md-6">
 							<label class="labels">Prénom</label>
 							<div class="field">
-								<%= form.text_field :name, class: 'form-control'%>
+								<%= form.text_field :name, class: 'form-control', :required => true%>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<label class="labels">Âge</label>
 							<div class="field">
-								<%= form.number_field :age, class: "form-control" %>
+								<%= form.number_field :age, class: "form-control", :required => true %>
 							</div>
 						</div>
 					</div>
@@ -23,31 +23,31 @@
 						<div class="col-md-6">
 							<label class="labels">Le genre</label>
 							<div class="field">
-								<%= form.text_field :gender, class: "form-control", placeholder: "0 - Female | 1 - Male" %>
+								<%= form.text_field :gender, class: "form-control", placeholder: "0 - Female | 1 - Male", :required => true %>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<label class="labels">Castré</label>
 							<div class="field">
-								<%= form.text_field :castrated, class: "form-control" %>
+								<%= form.text_field :castrated, class: "form-control", :required => true %>
 							</div>
 						</div>
 						<div class="col-md-6 mt-3">
 							<label class="labels">Amicale</label>
 							<div class="field">
-								<%= form.text_field :friendly, class: "form-control" %>
+								<%= form.text_field :friendly, class: "form-control", :required => true %>
 							</div>
 						</div>
 						<div class="col-md-6 mt-3">
 							<label class="labels">Allergique</label>
 							<div class="field">
-								<%= form.text_field :alergic, class: "form-control" %>
+								<%= form.text_field :alergic, class: "form-control", :required => true %>
 							</div>
 						</div>
 						<div class="col-md-6 mt-3">
 							<label class="labels">Dressé</label>
 							<div class="field">
-								<%= form.text_field :trained, class: "form-control" %>
+								<%= form.text_field :trained, class: "form-control", :required => true %>
 							</div>
 						</div>
 						<div class="col-md-6 mt-3">

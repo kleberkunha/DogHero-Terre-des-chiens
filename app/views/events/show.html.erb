@@ -17,7 +17,7 @@
         <a href="#" class="list-group-item list-group-item-action text-center ">Fin de l'événement : <%= @event.end_date.strftime('%D')%> <%= @event.end_date.strftime('%T')%></p></a>
         <a href="#" class="list-group-item list-group-item-action text-center d-flex justify-content-center"><h4>Prix : </h4><h5 class="card-text ml-3"><%= @event.price%> €</h5></a>
         <a href="#" class="list-group-item list-group-item-action text-center "><h4>Localisation :</h4> <p class="card-text"><%= @event.location%></p></a>
-        <a href="#" class="list-group-item list-group-item-action text-center "><h4>Description :</h4> <p class="card-text"><%= @event.description%></p></a>
+        <a href="#" class="list-group-item list-group-item-action text-center "><h4>Description :</h4> <p class="card-text"><%= @event.body%></p></a>
       </div>
     </div>
     <div class="col-sm d-flex justify-content-end  align-items-end p-0">

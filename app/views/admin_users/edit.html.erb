@@ -1,7 +1,7 @@
 <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
 
- <%= button_to "retourner", admin_user_path(current_user), :method => :get, :form_class => "btn" %>
+ <%= button_to "Retourner", admin_user_path(current_user), :method => :get, :form_class => "btn" %>
 
 <%= render 'form', user: @user %>
 

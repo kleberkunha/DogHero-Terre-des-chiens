@@ -1,6 +1,14 @@
 <h1>New Event</h1>
-
 <%= render 'form', event: @event %>
-
-<%= link_to 'Back to events', events_path %>
-<%= link_to 'Back to profile', admin_user_path(current_user) %>
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <ul class="main-btn-new-event-page-events pt-3">
+                <li class="new-event-btn-page-events d-flex">
+                    <%= link_to 'Back to events', events_path %>
+                    <%= link_to 'Back to profile', admin_user_path(current_user) %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

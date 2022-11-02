@@ -12,19 +12,19 @@ body::-webkit-scrollbar-thumb {
  }
 
 .bg-paralax{
-    background-image: url("http://wallpapers.net/web/wallpapers/strasbourg-france-hd-wallpaper/5120x2160.jpg");
+    background-image: url("https://cdn.dribbble.com/users/1107982/screenshots/15140551/media/4e3136579a7111aab3d4d715452ef560.png");
     /* Set a specific height */
     min-height: 26rem; 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: 250%;
+    background-position-y: 96%;
     display: flex;
     justify-content: center;
 }
 .logo-header{
-    background-image: url('tdc.png');
+    background-image: url('newLogo.png');
     background-size: contain;
     background-position: center;
     width: 350px;
