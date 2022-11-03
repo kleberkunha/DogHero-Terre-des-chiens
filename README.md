@@ -7,6 +7,7 @@
 ### Ruby version 2.7.0
 ### Rails 6.0.6
 ### Yarn 1.22.19
+### Node v12.12.12
 
 ### Database: PostgreSQL
 
