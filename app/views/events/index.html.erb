@@ -25,22 +25,22 @@
             <div class="col-sm d-flex justify-content-end  align-items-end p-0">
               <% subscriber = current_user.subscribers.find_by(user_id: current_user.id, event_id: event.id) %>
               <% if event.user_id === current_user.id %>
-                <%= link_to 'SHOW', event, class: "btn-show" %>
-                <%= link_to 'EDIT', edit_event_path(event), class: "btn-edit" %>
-                <%= button_to "DELETE", { :controller => :events, :action => 'destroy', :id => event.id }, :method => :delete, class: "btn-delete" %>
+                <%= link_to 'Voir', event, class: "btn-show" %>
+                <%= link_to 'Modf', edit_event_path(event), class: "btn-edit" %>
+                <%= button_to "Suppr", { :controller => :events, :action => 'destroy', :id => event.id }, :method => :delete, class: "btn-delete" %>
               <% else %>
                 <% if subscriber.nil? %>
                   <form action="/subscribers" method="post">
                     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                     <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                    <input class="subscribe-button" type="submit" value="SUBSCRIBE">
+                    <input class="subscribe-button" type="submit" value="S'INSCRIRE">
                   </form>
                 <% else %>
                   <form action="<%= subscriber_path(subscriber) %>" method="post">
                     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                    <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
+                    <input class="unsubscribe-button" type="submit" value="DÉSABONNER">
                   </form>
                 <% end %>
               <% end %>
@@ -48,7 +48,7 @@
                 <div class="counter__item__text">
                   <i class="fa-solid fa-shield-dog fa-2x"></i>
                   <h2 class="counter_num "><%= event.subscribers.count %></h2>
-                  <h6 class="counter_num ">Subscribers</h6>
+                  <h6 class="counter_num ">INSCRITS</h6>
                 </div>
               </div>
             </div>

@@ -9,24 +9,24 @@
     <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
       <% if user_signed_in? %>
         <div class="navbar-nav mr-auto py-0">
-          <%= button_to "Home", root_path, :method => :get, :form_class => "nav-item nav-link" %>
-          <%= button_to "About", about_index_path, :method => :get, :form_class => "nav-item nav-link" %>
-          <%= button_to "Events", events_path, :method => :get, :form_class => "nav-item nav-link" %>
-          <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>
-          <%= button_to "Products", products_path, :method => :get, :form_class => "nav-item nav-link" %>
-          <%= button_to "Profile", admin_user_path(current_user), :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "Accueil", root_path, :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "À propos", about_index_path, :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "Èvenements", events_path, :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "Services", service_path, :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "Produits", products_path, :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "Profil", admin_user_path(current_user), :method => :get, :form_class => "nav-item nav-link" %>
           <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
-          <%= button_to "Sign Out", destroy_user_session_path, :method => :get, :form_class => "nav-item nav-link" %>
+          <%= button_to "Se déconnecter", destroy_user_session_path, :method => :get, :form_class => "nav-item nav-link" %>
         </div>
       <% else %>
-        <%= button_to "Home", root_path, :method => :get, :form_class => "nav-item nav-link" %>
-        <%= button_to "About", about_index_path, :method => :get, :form_class => "nav-item nav-link" %>
-        <%= button_to "Events", events_path, :method => :get, :form_class => "nav-item nav-link" %>
-        <%= button_to "Service", service_path, :method => :get, :form_class => "nav-item nav-link" %>
-        <%= button_to "Products", products_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "Accueil", root_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "À propos", about_index_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "Èvenements", events_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "Services", service_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "Produits", products_path, :method => :get, :form_class => "nav-item nav-link" %>
         <%= button_to "Contact", contact_path, :method => :get, :form_class => "nav-item nav-link" %>
-        <%= button_to "Login", new_user_session_path, :method => :get, :form_class => "nav-item nav-link" %>
-        <%= button_to "Register", new_user_registration_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "Se connecter", new_user_session_path, :method => :get, :form_class => "nav-item nav-link" %>
+        <%= button_to "S'inscrire", new_user_registration_path, :method => :get, :form_class => "nav-item nav-link" %>
       <% end %>
     </div>
   </nav>

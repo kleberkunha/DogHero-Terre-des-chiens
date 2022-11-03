@@ -34,11 +34,6 @@
         </li>
         <li class=""><a href="#events-sub" data-toggle="tab">Evènements incrits</a>
         </li>
-        <% if @user.admin? %>
-          <li>
-            <%= link_to 'Page admin', admin_users_path, target: "_blank" %>
-          </li>
-        <% end %>
       </ul>
       <div class="row mt-5">
         <div class="col-sm-12">
@@ -53,11 +48,16 @@
                     <div class="tab-content">
                       <!-- BEGIN TIMELINE -->
                       <div class="tab-pane mt-2" id="timeline">
-                        <div class="d-flex">
-                          <p class="lead mx-2">Mes chiens</p>
-                          <p class="lead">
-                            <%= link_to "Ajouter un chien", new_dog_path %>
-                          </p>
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-lg-2">
+                              <ul class="main-btn-new-event-page-events pt-3">
+                                <li class="new-event-btn-page-events">
+                                  <%= link_to 'Ajouter un chien', new_dog_path %>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                         <div class="row">
                           <% @dogs.each do |dog| %>
@@ -96,33 +96,15 @@
                         <div class="row">
                           <div class="col-md-12">
                             <div class="popup-gallery">
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
+                              <a href="https://westmount.org/wp-content/uploads/2016/10/dogs_in_dogrun-800x445.jpg" title="Photo 1"><img src="https://westmount.org/wp-content/uploads/2016/10/dogs_in_dogrun-800x445.jpg" alt="">
                               </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 2"><img src="https://via.placeholder.com/128x100/" alt="">
+                              <a href="https://www.almanacnews.com/news/photos/2019/october/29/30207_full.jpg" title="Photo 2"><img src="https://www.almanacnews.com/news/photos/2019/october/29/30207_full.jpg" alt="">
                               </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img src="https://via.placeholder.com/128x100/" alt="">
+                              <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScAtSwu1ZGfy8zn-45egq7mjl1snuBxPEEFecWhFFxYymDRN2_8BgORV8RebY5aFiDF-I&usqp=CAU" title="Photo 3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScAtSwu1ZGfy8zn-45egq7mjl1snuBxPEEFecWhFFxYymDRN2_8BgORV8RebY5aFiDF-I&usqp=CAU" alt="">
                               </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img src="https://via.placeholder.com/128x100/" alt="">
+                              <a href="https://bloximages.newyork1.vip.townnews.com/gazette.com/content/tncms/assets/v3/editorial/0/c8/0c82e606-3ba9-11e9-8f78-f704989e42fa/5c786205ae3a8.image.jpg?crop=1567%2C1175%2C98%2C0&resize=1567%2C1175&order=crop%2Cresize" title="Photo 4"><img src="https://bloximages.newyork1.vip.townnews.com/gazette.com/content/tncms/assets/v3/editorial/0/c8/0c82e606-3ba9-11e9-8f78-f704989e42fa/5c786205ae3a8.image.jpg?crop=1567%2C1175%2C98%2C0&resize=1567%2C1175&order=crop%2Cresize" alt="">
                               </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 6"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 7"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 8"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img src="https://via.placeholder.com/128x100/" alt="">
-                              </a>
-                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
+                              <a href="https://static.wixstatic.com/media/6047cf_407e53fb657346108c0b23d82fc5e1b0~mv2.jpg/v1/fill/w_516,h_340,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/6047cf_407e53fb657346108c0b23d82fc5e1b0~mv2.jpg" title="Photo 5"><img src="https://static.wixstatic.com/media/6047cf_407e53fb657346108c0b23d82fc5e1b0~mv2.jpg/v1/fill/w_516,h_340,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/6047cf_407e53fb657346108c0b23d82fc5e1b0~mv2.jpg" alt="">
                               </a>
                             </div>
                             <br>
@@ -137,10 +119,10 @@
                             <div class="row">
                               <div class="container-fluid">
                                 <div class="row">
-                                  <div class="col-lg-2">
+                                  <div class="col-lg-4">
                                     <ul class="main-btn-new-event-page-events pt-3">
                                       <li class="new-event-btn-page-events">
-                                        <%= link_to 'New Event', new_event_path %>
+                                        <%= link_to 'Ajouter un evènement', new_event_path %>
                                       </li>
                                     </ul>
                                   </div>

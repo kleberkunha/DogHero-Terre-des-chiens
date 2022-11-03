@@ -40,7 +40,7 @@ class DogsController < ApplicationController
     if @dog.update(params.require(:dog).permit(:name, :age, :description, :avatar, :gender, :friendly, :castrated,
                                                :trained, :alergic))
       flash[:success] = 'Chien mis à jour avec succès!'
-      redirect_to admin_users_path
+      redirect_to admin_user_path(current_user)
     else
       flash.now[:error] = 'Mise à jour a échoué'
       render :edit
