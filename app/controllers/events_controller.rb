@@ -89,12 +89,12 @@ class EventsController < ApplicationController
 
     if current_user.role === 'admin'
       respond_to do |format|
-        format.html { redirect_to events_path, notice: 'Event was successfully destroyed.' }
+        format.html { redirect_to events_path, notice: "L'événement a été détruit avec succès." }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-        format.html { redirect_to admin_user_path(current_user), notice: 'Event was successfully destroyed.' }
+        format.html { redirect_to admin_user_path(current_user), notice: "L'événement a été détruit avec succès" }
         format.json { head :no_content }
       end
     end
