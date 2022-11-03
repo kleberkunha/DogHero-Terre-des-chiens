@@ -1,10 +1,11 @@
 <h1>DogHero / Terre des Chiens</h1>
 
-![Screenshot](https://imgur.com/jM2V2Rm)
-![Screenshot](https://imgur.com/DlBvjx6)
-![Screenshot](https://imgur.com/GaloryM)
 
+![TDCDH](https://user-images.githubusercontent.com/29848785/199745786-1c201228-1fdf-47b1-9ffe-a6981f7c4453.png)
 
+![connect](https://user-images.githubusercontent.com/29848785/199745804-f112c900-d5c6-4a7a-9315-157bdb2efa89.png)
+
+![profile](https://user-images.githubusercontent.com/29848785/199745824-11957844-0f99-47ed-9580-feb9f0ed3b01.png)
 
 #Installing
 
