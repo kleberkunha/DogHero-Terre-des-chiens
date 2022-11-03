@@ -7,7 +7,7 @@ class AdminUsersController < ApplicationController
     params_id = params[:id].to_i;
 
     if params_id != current_user.id 
-      flash[:error] = "Accès refusé lors de la tentative d'accès à un autre utilisateur / Les données de votre chien ont été modifiées avec succès !"
+      flash[:error] = "Accès refusé lors de la tentative d'accès à un autre utilisateur!"
       redirect_to root_path
     end
   end
