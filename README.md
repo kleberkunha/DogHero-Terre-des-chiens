@@ -1,5 +1,11 @@
 <h1>DogHero / Terre des Chiens</h1>
 
+![Screenshot](https://imgur.com/jM2V2Rm)
+![Screenshot](https://imgur.com/DlBvjx6)
+![Screenshot](https://imgur.com/GaloryM)
+
+
+
 #Installing
 
 # Languages Ruby on Rails
