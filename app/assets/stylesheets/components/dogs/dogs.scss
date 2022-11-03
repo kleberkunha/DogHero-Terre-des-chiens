@@ -3,39 +3,41 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.btn-edit-dog{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+.btn-edit-dog {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-.edit-btn-dog{
-    text-decoration: none !important;
-    text-transform: uppercase;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 10px;
-    font-weight: 600;
+.edit-btn-dog {
+  text-decoration: none !important;
+  text-transform: uppercase;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: 600;
 }
-.edit-btn-dog:hover{
-    background-color: black;
-    color: white;
-    font-weight: 600;
+
+.edit-btn-dog:hover {
+  background-color: black;
+  color: white;
+  font-weight: 600;
 }
+
 /*#########################################################*/
 /*#########################################################*/
 /*#########################################################*/
 /*#########################################################*/
-.container-dogs{
-    max-height: 513px;
+.container-dogs {
+  max-height: 513px;
 }
 
 
-.dog-area{
-    max-height: 693px;
-    overflow: scroll;
+.dog-area {
+  max-height: 693px;
+  overflow: scroll;
 }
 
-.control-footer-dognew{
-    overflow: hidden;
+.control-footer-dognew {
+  overflow: hidden;
 }

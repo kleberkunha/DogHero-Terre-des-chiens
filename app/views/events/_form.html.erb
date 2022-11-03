@@ -10,14 +10,14 @@
     </div>
   <% end %>
   <div class="field text-center">
-    <%= form.file_field :avatar, class: "" , :required => true %>
+    <%= form.file_field :avatar, class: "", :required => true %>
     <small class="form-text text-muted">Choisir une image</small>
   </div>
   <form>
     <div class="form-group mt-2">
       <label for="exampleInputEmail1"><%= form.label :TITRE %></label>
       <div>
-        <%= form.text_field :title, maxlength: 15 , :required => true%>
+        <%= form.text_field :title, maxlength: 15, :required => true %>
       </div>
       <small class="form-text text-muted">15 caractères maximum</small>
     </div>
@@ -25,7 +25,7 @@
     <div class="field pt-2">
       <%= form.label :date_de_début %>
       <div>
-      <%= form.datetime_select :start_date, :required => true %>
+        <%= form.datetime_select :start_date, :required => true %>
       </div>
     </div>
 
@@ -33,25 +33,23 @@
     <div class="field pt-2">
       <%= form.label :date_de_fin %>
       <div>
-      <%= form.datetime_select :end_date, :required => true %>
+        <%= form.datetime_select :end_date, :required => true %>
       </div>
     </div>
-
 
 
     <div class="field pt-2">
       <%= form.label :Prix %>
       <div>
-      <%= form.number_field :price, :required => true %>
+        <%= form.number_field :price, :required => true %>
       </div>
     </div>
-
 
 
     <div class="field pt-2">
       <%= form.label :localisation %>
       <div>
-      <%= form.text_field :location, :required => true %>
+        <%= form.text_field :location, :required => true %>
       </div>
     </div>
     <div class="field">

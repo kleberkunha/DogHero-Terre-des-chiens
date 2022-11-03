@@ -1,20 +1,22 @@
-.dog-infos span{
-    margin-left: 20px;
-    margin-right: 20px;
+.dog-infos span {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.dog-img-profile{
-    max-height: 230px;
+.dog-img-profile {
+  max-height: 230px;
 }
 
-.control-dog-img-profile{
-    max-width: 60%;
+.control-dog-img-profile {
+  max-width: 60%;
 }
-.dog-card-profile-user{
-    border: 2px solid rgba(0, 0, 0, 0.466);
-    border-radius: 10px;
+
+.dog-card-profile-user {
+  border: 2px solid rgba(0, 0, 0, 0.466);
+  border-radius: 10px;
 }
-.dog-card-profile-user:hover{
-    border: 1px solid black;
-    box-shadow: 0px 2px 10px 0px black;
+
+.dog-card-profile-user:hover {
+  border: 1px solid black;
+  box-shadow: 0px 2px 10px 0px black;
 }

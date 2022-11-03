@@ -1,20 +1,22 @@
-.control-event-show{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.control-event-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .show-bg-event {
-    max-width: 70%;
-    border: 10px solid black;
-    border-radius: 5px;
-    box-shadow: 0px 1px 10px 2px black;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  max-width: 70%;
+  border: 10px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px 2px black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
-.show-bg-event img{
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+
+.show-bg-event img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }

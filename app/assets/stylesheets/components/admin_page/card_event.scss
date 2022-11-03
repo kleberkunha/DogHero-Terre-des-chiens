@@ -1,4 +1,4 @@
-.card-control{
+.card-control {
   overflow: scroll;
   max-height: 400px;
   display: flex;
@@ -8,33 +8,37 @@
   margin-bottom: 30px;
 }
 
-.card-control::-webkit-scrollbar{
+.card-control::-webkit-scrollbar {
   width: 5px;
 }
+
 .card-control::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.288);
 }
 
-.delete-adm-button{
+.delete-adm-button {
   background-color: none;
   border: none;
   border-radius: 0;
   cursor: pointer;
 }
-.delete-adm-button:hover{
+
+.delete-adm-button:hover {
   background-color: red;
   color: white;
   font-weight: 600;
   border-radius: 2px;
 }
-.show-adm-button{
+
+.show-adm-button {
   text-decoration: none !important;
   background-color: rgba(0, 128, 0, 0.336);
   padding: 0px 5px 0px 5px;
   color: black;
 }
-.show-adm-button:hover{
+
+.show-adm-button:hover {
   background-color: rgba(0, 128, 0, 0.651);
   color: white;
 }

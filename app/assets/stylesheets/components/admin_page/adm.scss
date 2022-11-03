@@ -1,86 +1,95 @@
 .accordion .card {
-	border-radius: 0;
-	border: none;
-	margin-bottom: 5px;
-	padding-bottom: 3px;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
 }
+
 .accordion .card-header {
-	background: #ececec;
-	padding: .4rem 1rem;
-	border-radius: 0;
-	margin-bottom: -2px;
-	font-family: "Roboto", sans-serif;
-	box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-	margin: 0 3px 3px 0;
-	border: none;
+  background: #ececec;
+  padding: .4rem 1rem;
+  border-radius: 0;
+  margin-bottom: -2px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 0 3px 3px 0;
+  border: none;
 }
+
 .accordion .card-header:hover {
-	background: #e0e0e0;
+  background: #e0e0e0;
 }
+
 .accordion .card-header .btn {
-	font-size: 1.04rem;
-	font-weight: 500;
-	width: 100%;
-	text-align: left;
-	position: relative;
-	top: -2px;
+  font-size: 1.04rem;
+  font-weight: 500;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  top: -2px;
 }
+
 .accordion .card-header i {
-	float: right;
-	font-size: 1.3rem;
-	font-weight: bold;
-	position: relative;
-	top: 5px;
+  float: right;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+  top: 5px;
 }
+
 .accordion .card-header button:hover {
-	color: #23384e;
+  color: #23384e;
 }
+
 .accordion .card-header.highlight {
-	color: #fff;
-	background: #47b9de;
+  color: #fff;
+  background: #47b9de;
 }
+
 .accordion .card-body {
-	text-align: justify;
+  text-align: justify;
 }
-.table-responsive{
-	overflow: scroll;
+
+.table-responsive {
+  overflow: scroll;
 }
 
 
 /*----EVENTS ADMIN PAGE ----*/
-.events-adm-page:hover{
-	cursor: pointer;
-	background-color: #23384e8a;
+.events-adm-page:hover {
+  cursor: pointer;
+  background-color: #23384e8a;
 }
 
-.testing-scrool{
-	overflow: scroll;
-    max-height: 352px;
+.testing-scrool {
+  overflow: scroll;
+  max-height: 352px;
 }
 
 
 /*---- USER AVATAR -----*/
-.avatar-pic { 
-	width: 35px; 
-	height: 35px; 
-	border-radius: 3px;
+.avatar-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 3px;
 }
+
 /*---- USER AVATAR -----*/
 
-.content-adm-users{
-	display: flex;
-	justify-content: center;
-    flex-direction: column;
+.content-adm-users {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.adm-page-size-control{
-	margin-top: 7%;
+.adm-page-size-control {
+  margin-top: 7%;
 }
 
 .ellipsis {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display:block;
-    width : 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 130px;
 }

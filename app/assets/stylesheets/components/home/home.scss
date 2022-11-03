@@ -1,121 +1,130 @@
 body::-webkit-scrollbar {
-	width: 0.5rem;
-	background-color: black;
+  width: 0.5rem;
+  background-color: black;
 }
+
 body::-webkit-scrollbar-thumb {
-	background-color: #28a745;
+  background-color: #28a745;
 }
 
-.alert{
-    background-color: yellow;
-    font-weight: 600;
- }
+.alert {
+  background-color: yellow;
+  font-weight: 600;
+}
 
-.bg-paralax{
-    background-image: url("https://cdn.dribbble.com/users/1107982/screenshots/15140551/media/4e3136579a7111aab3d4d715452ef560.png");
-    /* Set a specific height */
-    min-height: 26rem; 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: 96%;
-    display: flex;
-    justify-content: center;
+.bg-paralax {
+  background-image: url("https://cdn.dribbble.com/users/1107982/screenshots/15140551/media/4e3136579a7111aab3d4d715452ef560.png");
+  /* Set a specific height */
+  min-height: 26rem;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 96%;
+  display: flex;
+  justify-content: center;
 }
-.logo-header{
-    background-image: url('newLogo.png');
-    background-size: contain;
-    background-position: center;
-    width: 350px;
-    height: 350px;
-    background-repeat: no-repeat;
-    margin-top: 60px;
+
+.logo-header {
+  background-image: url('newLogo.png');
+  background-size: contain;
+  background-position: center;
+  width: 350px;
+  height: 350px;
+  background-repeat: no-repeat;
+  margin-top: 60px;
 }
+
 /* This set the image of the list of events in the index as responsible */
-.image-size-control{
-    width: 100%;
-    height: 5vw;
-    object-fit: cover;
+.image-size-control {
+  width: 100%;
+  height: 5vw;
+  object-fit: cover;
 }
 
-.content-body{
-	display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-	align-items: center;
+.content-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.index-images-control{
-    width: 100%;
+.index-images-control {
+  width: 100%;
 }
-#myVideo{
-    width: 100%;
+
+#myVideo {
+  width: 100%;
 }
-.bg-dog{
-    background-image: url('https://cdn.dribbble.com/users/1107982/screenshots/15140551/media/4e3136579a7111aab3d4d715452ef560.png');
-    background-position: 25% 75%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: flex-end;
+
+.bg-dog {
+  background-image: url('https://cdn.dribbble.com/users/1107982/screenshots/15140551/media/4e3136579a7111aab3d4d715452ef560.png');
+  background-position: 25% 75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Carousel Sponsors */
 
 @mixin white-gradient {
-	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 $animationSpeed: 40s;
 
 // Animation
 @keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 8))}
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8))
+  }
 }
 
 
 // Styling
 .slider {
-	background: white;
-	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-	height: 100px;
-	margin: auto;
-	overflow:hidden;
-	position: relative;
-	width: 960px;
-	
-	&::before,
-	&::after {
-		@include white-gradient;
-		content: "";
-		height: 100px;
-		position: absolute;
-		width: 200px;
-		z-index: 2;
-	}
-	
-	&::after {
-		right: 0;
-		top: 0;
-		transform: rotateZ(180deg);
-	}
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 960px;
 
-	&::before {
-		left: 0;
-		top: 0;
-	}
-	
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		display: flex;
-		width: calc(250px * 8);
-	}
-	
-	.slide {
-		height: 100px;
-		width: 250px;
-	}
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(250px * 8);
+  }
+
+  .slide {
+    height: 100px;
+    width: 250px;
+  }
 }

@@ -1,292 +1,272 @@
 <div class="container-fluid pt-5">
-    <div class="row">
-        <div class="col-sm-3  d-flex justify-content-center">
-            <div class="wrapper">
-                <div class="profile">
-                    <% if @user.avatar.attached? %>
-                        <%= image_tag @user.avatar, class: "card-img-top" %>
-                            <% end %>
-                                <h3 class="name pt-2"><%= @user.first_name%>&nbsp<%= @user.last_name%></h3>
-                                <p class="title">
-                                    <%= @user.email%>
-                                </p>
-                                <div class="">
-                                    <p class="title p-0">Téléphone :
-                                        <%= @user.phone_number%>
-                                    </p>
-                                    <p class="title p-0">Addresse :
-                                        <%= @user.address%>
-                                    </p>
-                                </div>
-                                <button type="button" class="btn">
-                                    <%= link_to "modifier mes informations", edit_admin_user_url(@user.id), class: 'btn btn-primary'%>
-                                </button>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-sm-3  d-flex justify-content-center">
+      <div class="wrapper">
+        <div class="profile">
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, class: "card-img-top" %>
+          <% end %>
+          <h3 class="name pt-2"><%= @user.first_name %>&nbsp<%= @user.last_name %></h3>
+          <p class="title">
+            <%= @user.email %>
+          </p>
+          <div class="">
+            <p class="title p-0">Téléphone :
+              <%= @user.phone_number %>
+            </p>
+            <p class="title p-0">Addresse :
+              <%= @user.address %>
+            </p>
+          </div>
+          <button type="button" class="btn">
+            <%= link_to "modifier mes informations", edit_admin_user_url(@user.id), class: 'btn btn-primary' %>
+          </button>
         </div>
-        <div class="col-sm ">
-            <ul class="nav profile-user-painel">
-                <li class=""><a href="#timeline" data-toggle="tab">Mes chiens</a>
-                </li>
-                <li class=""><a href="#photos" data-toggle="tab">Photos</a>
-                </li>
-                <li class=""><a href="#my-events" data-toggle="tab">Mes evènements</a>
-                </li>
-                <li class=""><a href="#events-sub" data-toggle="tab">Evènements incrits</a>
-                </li>
-
-<%
-=begin%>
-button to admin page, is off because need to fix connection by url
-    <% if @user.admin? %>
-        <li>
-            <%= link_to 'Page admin', admin_users_path, target: "_blank"%>
-        </li>
-    <% end %>
-<%
-=end%>
-
-
-
-
-            </ul>
-            <div class="row mt-5">
-                <div class="col-sm-12">
-
-
-                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-                    <div class="container-fluid bootstrap snippets bootdey">
-                        <div class="row">
-                            <!-- BEGIN USER PROFILE -->
-                            <div class="col-md-12">
-                                <div class="grid profile">
-
-                                    <div class="grid-body">
-                                        <div class="tab-content">
-                                            <!-- BEGIN TIMELINE -->
-                                            <div class="tab-pane mt-2" id="timeline">
-                                                <div class="d-flex">
-                                                    <p class="lead mx-2">Mes chiens</p>
-                                                    <p class="lead">
-                                                        <%=link_to "Ajouter un chien", new_dog_path%>
-                                                    </p>
-                                                </div>
-                                                <div class="row">
-                                                    <% @dogs.each do |dog| %>
-                                                        <div class="col-md-3 p-0 ml-3 dog-card-profile-user">
-                                                            <% if dog.avatar.attached? %>
-                                                                <%= image_tag dog.avatar, width: "100%", class: "img-thumbnail center dog-img-profile md-margin-bottom-10" %>
-                                                                    <% end %>                                                                        
-                                                                        <h3 class="name pt-2 text-center"><%= dog.name%></h3>
-                                                                        <div class="text-center dog-infos">
-                                                                            <a href="#" class="list-group-item ">Le genre: <%= format_gender(dog)%></a>
-                                                                            <a href="#" class="list-group-item">Castré: <%= dog.castrated %></a>
-                                                                            <a href="#" class="list-group-item">Amicale: <%= dog.friendly %></a>
-                                                                            <a href="#" class="list-group-item">Allergique: <%= dog.alergic %></a>
-                                                                            <a href="#" class="list-group-item">Dressé: <%= dog.trained %></a>
-
-
-                                                                            <% if dog.user_id === current_user.id%>
-                                                                                <div class="col-sm-12 ">
-                                                                                    <%=link_to 'Modifier', edit_dog_path(dog.id), class: "edit-btn-dog" %>
-                                                                                </div>
-                                                                                <% end %>
-                                                                                    <hr>
-                                                                                    <p>
-                                                                                        <%= dog.description %>
-                                                                                        <%= button_to "DELETE", {:controller => :dogs, :action => 'destroy', :id => dog.id }, :method => :delete, class:"btn-delete" %>
-                                                                                    </p>
-                                                                        </div>
-                                                        </div>
-                                                        <% end %>
-                                                </div>
-                                            </div>
-                                            <!-- END TIMELINE -->
-                                            <!-- BEGIN PHOTOS -->
-                                            <div class="tab-pane" id="photos">
-                                                <p class="lead mt-2">My Photos</p>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="popup-gallery">
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 2"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 6"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 7"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 8"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                            <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- END PHOTOS -->
-                                            <!-- BEGIN SETTINGS -->
-
-                                            <div class="tab-pane" id="my-events">
-                                                <section class="pt-5 pb-5">
-                                                    <div class="container-fluid">
-                                                        <div class="row">
-                                                            <div class="container-fluid">
-                                                                <div class="row">
-                                                                    <div class="col-lg-2">
-                                                                        <ul class="main-btn-new-event-page-events pt-3">
-                                                                            <li class="new-event-btn-page-events">
-                                                                                <%= link_to 'New Event', new_event_path %>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                                                                    <div class="row">
-                                                                        <% @events.each do |event| %>
-                                                                            <div class="card">
-                                                                                <% if event.avatar.attached? %>
-                                                                                    <div class="">
-                                                                                        <%= image_tag event.avatar, class:"image-size-control" %>
-                                                                                    </div>
-                                                                                <% else %>
-                                                                                    <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
-                                                                                <% end %>
-                                                                                <div class="card_content">
-                                                                                    <p class="card-text">
-                                                                                        <h3 class="text-center mt-0"><%= event.title %></h3>
-                                                                                    </p>
-                                                                                    <h5>Start on : <%= event.start_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
-                                                                                    <h5>Ends on : <%= event.end_date.strftime('%D')%>&nbspAt : <%= event.start_date.strftime('%T')%></h5>
-                                                                                    <h5>Price: <%= event.price%></h5>
-                                                                                    <div class="col-lg-12 p-0">
-                                                                                        <div class="col-sm d-flex justify-content-end  align-items-end p-0">
-                                                                                            <% subscriber= current_user.subscribers.find_by(user_id: current_user.id, event_id: event.id)%>
-                                                                                                <% if event.user_id === current_user.id%>
-                                                                                                    <%= link_to 'SHOW', event, class: "btn-show"%>
-                                                                                                        <%= link_to 'EDIT', edit_event_path(event), class: "btn-edit" %>
-                                                                                                            <%= button_to "DELETE", {:controller=> :events, :action => 'destroy', :id => event.id }, :method => :delete, class:"btn-delete" %>
-                                                                                                                <% else %>
-                                                                                                                    <% if subscriber.nil?%>
-                                                                                                                        <form action="/subscribers" method="post">
-                                                                                                                            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                                                                                                                            <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                                                                                                                            <input class="subscribe-button" type="submit" value="SUBSCRIBE">
-                                                                                                                        </form>
-                                                                                                                        <% else%>
-                                                                                                                            <form action="<%= subscriber_path(subscriber)%>" method="post">
-                                                                                                                                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                                                                                                                                <input type="hidden" name="_method" value="DELETE">
-                                                                                                                                <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
-                                                                                                                                <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
-                                                                                                                            </form>
-                                                                                                                            <% end %>
-                                                                                                                                <% end %>
-                                                                                                                                    <div class="counter__item second__item">
-                                                                                                                                        <div class="counter__item__text">
-                                                                                                                                            <i class="fa-solid fa-shield-dog fa-2x"></i>
-                                                                                                                                            <h2 class="counter_num "><%= event.subscribers.count %></h2>
-                                                                                                                                            <h6 class="counter_num ">Subscribers</h6>
-                                                                                                                                        </div>
-                                                                                                                                    </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <% end %>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-
-                                            <!--EVENTS SUBSCRIBED-->
-
-                                            <div class="tab-pane" id="events-sub">
-                                                <section class="pt-5 pb-5">
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <h3 class="mb-3">Events Subscribed </h3>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                                                                    <div class="row">
-                                                                        <% @subscribed_events.each do |event| %>
-                                                                            <div class="col-md-4 mb-3">
-                                                                                <div class="card">
-                                                                                    <% if event.avatar.attached? %>
-                                                                                        <%= image_tag event.avatar, width: "100%" %>
-                                                                                            <% else %>
-                                                                                                <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
-                                                                                                <% end %>
-                                                                                                    <div class="card-body">
-                                                                                                        <h5 class="card-title"><%= event.title %></h5>
-                                                                                                        <p class="card-text">
-                                                                                                            <%= event.body %>
-                                                                                                        </p>
-                                                                                                        <h5>Start: <%= event.start_date %></h5>
-                                                                                                        <h5>Ends: <%= event.start_date %></h5>
-                                                                                                        <h5>Price: <%= event.price %></h5>
-                                                                                                        <h4>Creator: <%= event.user_id %></h4>
-                                                                                                        <a href="#" class="btn btn-primary">
-                                                                                                            <%= link_to 'show', event %>
-                                                                                                        </a>
-                                                                                                        <a href="#" class="btn btn-primary">
-                                                                                                            <%= link_to 'Edit', edit_event_path(event) %>
-                                                                                                        </a>
-                                                                                                        <% if @user.admin? %>
-                                                                                                            <%= button_to "DELETE EVENT", event_path(:id=> event.id), :method => :delete, class:"unsubscribe-button w-100" %>
-                                                                                                                <% end %>
-                                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <% end %>
-                                                                            
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-                                            <!--EVENTS SUBSCRIBED-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END USER PROFILE -->
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col-sm ">
+      <ul class="nav profile-user-painel">
+        <li class=""><a href="#timeline" data-toggle="tab">Mes chiens</a>
+        </li>
+        <li class=""><a href="#photos" data-toggle="tab">Photos</a>
+        </li>
+        <li class=""><a href="#my-events" data-toggle="tab">Mes evènements</a>
+        </li>
+        <li class=""><a href="#events-sub" data-toggle="tab">Evènements incrits</a>
+        </li>
+        <% if @user.admin? %>
+          <li>
+            <%= link_to 'Page admin', admin_users_path, target: "_blank" %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="row mt-5">
+        <div class="col-sm-12">
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+          <div class="container-fluid bootstrap snippets bootdey">
+            <div class="row">
+              <!-- BEGIN USER PROFILE -->
+              <div class="col-md-12">
+                <div class="grid profile">
 
+                  <div class="grid-body">
+                    <div class="tab-content">
+                      <!-- BEGIN TIMELINE -->
+                      <div class="tab-pane mt-2" id="timeline">
+                        <div class="d-flex">
+                          <p class="lead mx-2">Mes chiens</p>
+                          <p class="lead">
+                            <%= link_to "Ajouter un chien", new_dog_path %>
+                          </p>
+                        </div>
+                        <div class="row">
+                          <% @dogs.each do |dog| %>
+                            <div class="col-md-3 p-0 ml-3 dog-card-profile-user">
+                              <% if dog.avatar.attached? %>
+                                <%= image_tag dog.avatar, width: "100%", class: "img-thumbnail center dog-img-profile md-margin-bottom-10" %>
+                              <% end %>
+                              <h3 class="name pt-2 text-center"><%= dog.name %></h3>
+                              <div class="text-center dog-infos">
+                                <a href="#" class="list-group-item ">Le genre: <%= format_gender(dog) %></a>
+                                <a href="#" class="list-group-item">Castré: <%= dog.castrated %></a>
+                                <a href="#" class="list-group-item">Amicale: <%= dog.friendly %></a>
+                                <a href="#" class="list-group-item">Allergique: <%= dog.alergic %></a>
+                                <a href="#" class="list-group-item">Dressé: <%= dog.trained %></a>
+
+
+                                <% if dog.user_id === current_user.id %>
+                                  <div class="col-sm-12 ">
+                                    <%= link_to 'Modifier', edit_dog_path(dog.id), class: "edit-btn-dog" %>
+                                  </div>
+                                <% end %>
+                                <hr>
+                                <p>
+                                  <%= dog.description %>
+                                  <%= button_to "DELETE", { :controller => :dogs, :action => 'destroy', :id => dog.id }, :method => :delete, class: "btn-delete" %>
+                                </p>
+                              </div>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                      <!-- END TIMELINE -->
+                      <!-- BEGIN PHOTOS -->
+                      <div class="tab-pane" id="photos">
+                        <p class="lead mt-2">My Photos</p>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="popup-gallery">
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 2"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 6"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 7"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 8"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 3"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 4"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 5"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                              <a href="https://via.placeholder.com/128x100/" title="Photo 1"><img src="https://via.placeholder.com/128x100/" alt="">
+                              </a>
+                            </div>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END PHOTOS -->
+                      <!-- BEGIN SETTINGS -->
+                      <div class="tab-pane" id="my-events">
+                        <section class="pt-5 pb-5">
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="container-fluid">
+                                <div class="row">
+                                  <div class="col-lg-2">
+                                    <ul class="main-btn-new-event-page-events pt-3">
+                                      <li class="new-event-btn-page-events">
+                                        <%= link_to 'New Event', new_event_path %>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                                  <div class="row">
+                                    <% @events.each do |event| %>
+                                      <div class="card">
+                                        <% if event.avatar.attached? %>
+                                          <div class="">
+                                            <%= image_tag event.avatar, class: "image-size-control" %>
+                                          </div>
+                                        <% else %>
+                                          <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
+                                        <% end %>
+                                        <div class="card_content">
+                                          <p class="card-text">
+                                          <h3 class="text-center mt-0"><%= event.title %></h3>
+                                          </p>
+                                          <h5>Start on : <%= event.start_date.strftime('%D') %>&nbspAt
+                                            : <%= event.start_date.strftime('%T') %></h5>
+                                          <h5>Ends on : <%= event.end_date.strftime('%D') %>&nbspAt
+                                            : <%= event.start_date.strftime('%T') %></h5>
+                                          <h5>Price: <%= event.price %></h5>
+                                          <div class="col-lg-12 p-0">
+                                            <div class="col-sm d-flex justify-content-end  align-items-end p-0">
+                                              <% subscriber = current_user.subscribers.find_by(user_id: current_user.id, event_id: event.id) %>
+                                              <% if event.user_id === current_user.id %>
+                                                <%= link_to 'SHOW', event, class: "btn-show" %>
+                                                <%= link_to 'EDIT', edit_event_path(event), class: "btn-edit" %>
+                                                <%= button_to "DELETE", { :controller => :events, :action => 'destroy', :id => event.id }, :method => :delete, class: "btn-delete" %>
+                                              <% else %>
+                                                <% if subscriber.nil? %>
+                                                  <form action="/subscribers" method="post">
+                                                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                                    <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                                                    <input class="subscribe-button" type="submit" value="SUBSCRIBE">
+                                                  </form>
+                                                <% else %>
+                                                  <form action="<%= subscriber_path(subscriber) %>" method="post">
+                                                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="subscriber[event_id]" value="<%= event.id %>">
+                                                    <input class="unsubscribe-button" type="submit" value="UNSUBSCRIBE">
+                                                  </form>
+                                                <% end %>
+                                              <% end %>
+                                              <div class="counter__item second__item">
+                                                <div class="counter__item__text">
+                                                  <i class="fa-solid fa-shield-dog fa-2x"></i>
+                                                  <h2 class="counter_num "><%= event.subscribers.count %></h2>
+                                                  <h6 class="counter_num ">Subscribers</h6>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <% end %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                      <!--EVENTS SUBSCRIBED-->
+                      <div class="tab-pane" id="events-sub">
+                        <section class="pt-5 pb-5">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-6">
+                                <h3 class="mb-3">Events Subscribed </h3>
+                              </div>
+                              <div class="col-12">
+                                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                                  <div class="row">
+                                    <% @subscribed_events.each do |event| %>
+                                      <div class="col-md-4 mb-3">
+                                        <div class="card">
+                                          <% if event.avatar.attached? %>
+                                            <%= image_tag event.avatar, width: "100%" %>
+                                          <% else %>
+                                            <img class="card-img-top" src="https://www.intermountainpet.com/hubfs/Blog_Images/Dog-watching-car-drive-awayFB.jpg" alt="Card image cap">
+                                          <% end %>
+                                          <div class="card-body">
+                                            <h5 class="card-title"><%= event.title %></h5>
+                                            <p class="card-text">
+                                              <%= event.body %>
+                                            </p>
+                                            <h5>Start: <%= event.start_date %></h5>
+                                            <h5>Ends: <%= event.start_date %></h5>
+                                            <h5>Price: <%= event.price %></h5>
+                                            <h4>Creator: <%= event.user_id %></h4>
+                                            <a href="#" class="btn btn-primary">
+                                              <%= link_to 'show', event %>
+                                            </a>
+                                            <a href="#" class="btn btn-primary">
+                                              <%= link_to 'Edit', edit_event_path(event) %>
+                                            </a>
+                                            <% if @user.admin? %>
+                                              <%= button_to "DELETE EVENT", event_path(:id => event.id), :method => :delete, class: "unsubscribe-button w-100" %>
+                                            <% end %>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <% end %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                      <!--EVENTS SUBSCRIBED-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END USER PROFILE -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
