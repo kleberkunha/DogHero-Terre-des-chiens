@@ -59,7 +59,7 @@
       <div class="card col-sm-2 p-0">
         <% if event.avatar.attached? %>
           <div class="">
-            <%= image_tag event.avatar, class: "image-size-control" %>
+            <%= image_tag event.avatar, class: "image-size-control", alt:"no Image event" %>
           </div>
         <% else %>
           <img src="https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg" alt="No image" class="card-img-top">
