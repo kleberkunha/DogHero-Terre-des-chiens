@@ -13,6 +13,10 @@
 #### OLD PLANNING
 ![sigma](https://user-images.githubusercontent.com/29848785/199759334-4266170b-fa98-4188-8e59-33971903c4b6.png)
 
+#### TRELLO 
+
+https://trello.com/b/61FZriRy/doghero
+
 #Installing
 
 # Languages Ruby on Rails
