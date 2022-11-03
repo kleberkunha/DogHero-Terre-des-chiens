@@ -9,6 +9,10 @@
 
 ![DIagramDB](https://user-images.githubusercontent.com/29848785/199758941-e158e5e6-19aa-48e6-9da2-92e6c9225409.png)
 
+
+#### OLD PLANNING
+![sigma](https://user-images.githubusercontent.com/29848785/199759334-4266170b-fa98-4188-8e59-33971903c4b6.png)
+
 #Installing
 
 # Languages Ruby on Rails
