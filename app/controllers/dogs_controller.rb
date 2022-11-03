@@ -50,9 +50,8 @@ class DogsController < ApplicationController
   # DELETE /dogs/1 or /dogs/1.json
   def destroy
     @dog.destroy
-
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: 'Le chien a été détruit avec succès.' }
+      format.html { redirect_to admin_user_url(current_user.id), notice: 'Le chien a été détruit avec succès.' }
       format.json { head :no_content }
     end
   end

@@ -34,11 +34,21 @@
                 </li>
                 <li class=""><a href="#events-sub" data-toggle="tab">Evènements incrits</a>
                 </li>
-                <% if @user.admin? %>
-                    <li>
-                        <%= link_to 'Page admin', admin_users_path, target: "_blank"%>
-                    </li>
-                    <% end %>
+
+<%
+=begin%>
+button to admin page, is off because need to fix connection by url
+    <% if @user.admin? %>
+        <li>
+            <%= link_to 'Page admin', admin_users_path, target: "_blank"%>
+        </li>
+    <% end %>
+<%
+=end%>
+
+
+
+
             </ul>
             <div class="row mt-5">
                 <div class="col-sm-12">
@@ -84,6 +94,7 @@
                                                                                     <hr>
                                                                                     <p>
                                                                                         <%= dog.description %>
+                                                                                        <%= button_to "DELETE", {:controller => :dogs, :action => 'destroy', :id => dog.id }, :method => :delete, class:"btn-delete" %>
                                                                                     </p>
                                                                         </div>
                                                         </div>
@@ -253,6 +264,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <% end %>
+                                                                            
                                                                     </div>
                                                                 </div>
                                                             </div>

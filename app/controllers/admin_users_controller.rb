@@ -5,8 +5,9 @@ class AdminUsersController < ApplicationController
   ########################################################################################
   def not_same_user
     params_id = params[:id].to_i;
-    if params_id != current_user.id
-      flash[:error] = "Accès refusé"
+
+    if params_id != current_user.id 
+      flash[:error] = "Accès refusé lors de la tentative d'accès à un autre utilisateur / Les données de votre chien ont été modifiées avec succès !"
       redirect_to root_path
     end
   end
@@ -42,7 +43,7 @@ class AdminUsersController < ApplicationController
 
     @events = Event.all.where(user_id: current_user.id)
 
-    @dogs = Dog.where(user_id: current_user.id)
+    @dogs = Dog.where(user_id: current_user.id).reverse
 
     @users = User.all
 

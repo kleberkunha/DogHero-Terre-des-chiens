@@ -1,69 +1,65 @@
-<div class="container d-flex justify-content-center">
-  <div class="row d-flex w-75 p-3">
-    <div class="col-sm border new-event justify-content-center text-center">
-      <%= form_with(model: event, local: true, class: "pt-5") do |form| %>
-        <% if event.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-            <ul>
-              <% event.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+<%= form_with(model: event, local: true, class: "container control-newevent pt-5 mt-5") do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <ul>
+        <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
-
-        <div class="field">
-          <%= form.file_field :avatar, class: "d-flex justify-content-center" %>
-        </div>
-
-        <div class="field pt-2">
-          <%= form.label :TITRE %>
-          <div>
-          <%= form.text_field :title, maxlength: 15  %>
-          </div>
-        </div>
-
-        <div class="field pt-2">
-          <%= form.label :date_de_début %>
-          <div>
-          <%= form.datetime_select :start_date %>
-          </div>
-        </div>
-
-        <div class="field pt-2">
-          <%= form.label :date_de_fin %>
-          <div>
-          <%= form.datetime_select :end_date %>
-          </div>
-        </div>
-
-        <div class="field pt-2">
-          <%= form.label :Prix %>
-          <div>
-          <%= form.number_field :price %>
-          </div>
-        </div>
-
-        <div class="field pt-2">
-          <%= form.label :localisation %>
-          <div>
-          <%= form.text_field :location %>
-          </div>
-        </div>
-
-        <div class="field">
-          <%= form.label :description %>
-          <div>
-            <%= form.text_area :body %>
-          </div>
-        </div>
-
-        <div class="actions">
-          <%= form.submit %>
-        </div>
-      <% end %>
+      </ul>
     </div>
+  <% end %>
+  <div class="field text-center">
+    <%= form.file_field :avatar, class: "" , :required => true %>
+    <small class="form-text text-muted">Choisir une image</small>
   </div>
-</div>
+  <form>
+    <div class="form-group mt-2">
+      <label for="exampleInputEmail1"><%= form.label :TITRE %></label>
+      <div>
+        <%= form.text_field :title, maxlength: 15 , :required => true%>
+      </div>
+      <small class="form-text text-muted">15 caractères maximum</small>
+    </div>
+
+    <div class="field pt-2">
+      <%= form.label :date_de_début %>
+      <div>
+      <%= form.datetime_select :start_date, :required => true %>
+      </div>
+    </div>
+
+
+    <div class="field pt-2">
+      <%= form.label :date_de_fin %>
+      <div>
+      <%= form.datetime_select :end_date, :required => true %>
+      </div>
+    </div>
+
+
+
+    <div class="field pt-2">
+      <%= form.label :Prix %>
+      <div>
+      <%= form.number_field :price, :required => true %>
+      </div>
+    </div>
+
+
+
+    <div class="field pt-2">
+      <%= form.label :localisation %>
+      <div>
+      <%= form.text_field :location, :required => true %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <div>
+        <%= form.text_area :body, :required => true %>
+      </div>
+    </div>
+    <%= form.submit %>
+  </form>
+<% end %>
