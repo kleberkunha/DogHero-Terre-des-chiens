@@ -7,6 +7,8 @@
 
 ![profile](https://user-images.githubusercontent.com/29848785/199745824-11957844-0f99-47ed-9580-feb9f0ed3b01.png)
 
+![DIagramDB](https://user-images.githubusercontent.com/29848785/199758941-e158e5e6-19aa-48e6-9da2-92e6c9225409.png)
+
 #Installing
 
 # Languages Ruby on Rails
